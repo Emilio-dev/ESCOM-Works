@@ -1,0 +1,1 @@
+All this practices must be executed in a Linux SO because of the libraries used

@@ -1,0 +1,96 @@
+/*
+        DIAGRAMA UML
+-----------------------------
+JFrame->Problema8
+-----------------------------
+txtfld1
+txtfld2
+btn1
+btn2
+btn3
+btn4
+lbl1
+res
+s
+-----------------------------
+actionPerformed
+-----------------------------
+*/
+
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.GridLayout;
+import java.awt.*; 
+
+public class Problema8 extends JFrame implements ActionListener
+{
+
+ private JTextField txtfld1,txtfld2;
+ private JButton btn1,btn2,btn3,btn4;
+ private JLabel lbl1;
+ private int res;
+ private String s = new String();
+
+ public Problema8()
+ {
+
+  setLayout(null);
+
+  txtfld1 = new JTextField();
+  txtfld1.setBounds(10,17,60,30);
+  add(txtfld1);
+
+  txtfld2 = new JTextField();
+  txtfld2.setBounds(75,17,60,30);
+  add(txtfld2);
+
+  btn1 = new JButton("+");
+  btn1.setBounds(140,17,50,30);
+  add(btn1);
+  btn1.addActionListener(this);
+
+  btn2 = new JButton("-");
+  btn2.setBounds(195,17,50,30);
+  add(btn2);
+  btn2.addActionListener(this);
+
+  btn3 = new JButton("*");
+  btn3.setBounds(250,17,50,30);
+  add(btn3);
+  btn3.addActionListener(this);
+
+  btn4 = new JButton("/");
+  btn4.setBounds(305,17,50,30);
+  add(btn4);
+  btn4.addActionListener(this);
+
+  lbl1 = new JLabel("Res");
+  lbl1.setBounds(360,17,60,30);
+  add(lbl1);
+  
+ }
+
+ public void actionPerformed(ActionEvent evBoton){
+  if(evBoton.getSource() == btn1)
+        res = Integer.parseInt(txtfld1.getText()) + Integer.parseInt(txtfld2.getText());
+  else if(evBoton.getSource() == btn2)
+        res = Integer.parseInt(txtfld1.getText()) - Integer.parseInt(txtfld2.getText());
+  else if(evBoton.getSource() == btn3)
+        res = Integer.parseInt(txtfld1.getText()) * Integer.parseInt(txtfld2.getText());
+  else if(evBoton.getSource() == btn4)
+        res = Integer.parseInt(txtfld1.getText()) / Integer.parseInt(txtfld2.getText());
+
+   s = "" + res;
+   lbl1.setText(s); 
+} 
+
+ public static void main(String args[]){
+  Problema8 calc1 = new Problema8();
+  calc1.setBounds(0,0,750,150);
+  calc1.setVisible(true);
+  calc1.setResizable(false);
+  calc1.setLocationRelativeTo(null);
+  calc1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ }
+}

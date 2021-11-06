@@ -1,0 +1,72 @@
+/*
+        DIAGRAMA UML
+-----------------------------
+JFrame->Problema6
+-----------------------------
+txtfld1
+txtfld2
+btn
+lbl1
+-----------------------------
+actionPerformed
+-----------------------------
+*/
+
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.GridLayout;
+import java.awt.*; 
+
+public class Problema6 extends JFrame implements ActionListener
+{
+
+ private JTextField txtfld1,txtfld2;
+ private JLabel lbl1;
+ private JButton btn;
+
+ public Problema6()
+ {
+
+  setLayout(null);
+
+  txtfld1 = new JTextField();
+  txtfld1.setBounds(10,17,100,30);
+  add(txtfld1);
+
+  txtfld2 = new JTextField();
+  txtfld2.setBounds(120,17,150,30);
+  add(txtfld2);
+
+  btn = new JButton("Submit");
+  btn.setBounds(280,17,150,30);
+  add(btn);
+  btn.addActionListener(this);
+
+  lbl1 = new JLabel("Son iguales?");
+  lbl1.setBounds(440,17,100,30);
+  add(lbl1);
+
+ }
+
+ public void actionPerformed(ActionEvent evBoton){
+  if(evBoton.getSource() == btn)
+  {
+    String texto1 = txtfld1.getText();
+    String texto2 = txtfld2.getText();
+      if(texto1.equals(texto2))
+            lbl1.setText("Son iguales");
+      else
+            lbl1.setText("No son iguales");
+  }
+} 
+
+ public static void main(String args[]){
+  Problema6 calc1 = new Problema6();
+  calc1.setBounds(0,0,750,150);
+  calc1.setVisible(true);
+  calc1.setResizable(false);
+  calc1.setLocationRelativeTo(null);
+  calc1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ }
+}

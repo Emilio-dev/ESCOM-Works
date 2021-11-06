@@ -1,0 +1,80 @@
+/*
+        DIAGRAMA UML
+-----------------------------
+JFrame->Problema5
+-----------------------------
+txtfld1
+txtfld2
+btn1
+bt2
+res
+s
+-----------------------------
+actionPerformed
+-----------------------------
+*/
+
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.GridLayout;
+import java.awt.*; 
+
+public class Problema5 extends JFrame implements ActionListener
+{
+
+ private JTextField txtfld1,txtfld2;
+ private JButton btn1,btn2;
+ private int res;
+ private String s = new String();
+
+ public Problema5()
+ {
+
+  setLayout(null);
+
+  txtfld1 = new JTextField();
+  txtfld1.setBounds(10,17,100,30);
+  add(txtfld1);
+
+  btn1 = new JButton("Peso a Dolar");
+  btn1.setBounds(120,17,150,30);
+  add(btn1);
+  btn1.addActionListener(this);
+
+  btn2 = new JButton("Dolar a Peso");
+  btn2.setBounds(280,17,150,30);
+  add(btn2);
+  btn2.addActionListener(this);
+
+  txtfld2 = new JTextField();
+  txtfld2.setBounds(440,17,100,30);
+  add(txtfld2);
+  
+ }
+
+ public void actionPerformed(ActionEvent evBoton){
+  if(evBoton.getSource() == btn1)
+  {
+    res = Integer.parseInt(txtfld1.getText()) * Integer.parseInt(txtfld2.getText());
+    s = "" + res;
+    txtfld1.setText(s);
+  }
+  
+  if(evBoton.getSource() == btn2)
+  {
+    res = Integer.parseInt(txtfld1.getText()) / Integer.parseInt(txtfld2.getText());
+    s = "" + res;
+    txtfld1.setText(s);
+  }
+} 
+
+ public static void main(String args[]){
+  Problema5 calc1 = new Problema5();
+  calc1.setBounds(0,0,750,150);
+  calc1.setVisible(true);
+  calc1.setResizable(false);
+  calc1.setLocationRelativeTo(null);
+  calc1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ }
+}

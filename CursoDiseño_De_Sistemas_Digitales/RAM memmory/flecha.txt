@@ -1,0 +1,12 @@
+valores flecha en binario
+
+00010000
+00111000
+01111100
+11111110
+00111000
+00111000
+00111000
+00111000
+
+el valor de n despejado es 13

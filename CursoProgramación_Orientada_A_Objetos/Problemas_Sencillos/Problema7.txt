@@ -1,0 +1,69 @@
+/*
+        DIAGRAMA UML
+-----------------------------
+JFrame->Problema7
+-----------------------------
+txtfld1
+btn
+lbl1
+res
+s
+-----------------------------
+actionPerformed
+-----------------------------
+*/
+
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.GridLayout;
+import java.awt.*; 
+
+public class Problema7 extends JFrame implements ActionListener
+{
+
+ private JTextField txtfld1;
+ private JLabel lbl1;
+ private JButton btn;
+ private int res;
+ private String s = new String();
+
+
+ public Problema7()
+ {
+
+  setLayout(null);
+
+  txtfld1 = new JTextField();
+  txtfld1.setBounds(10,17,100,30);
+  add(txtfld1);
+
+  btn = new JButton("Submit");
+  btn.setBounds(120,17,150,30);
+  add(btn);
+  btn.addActionListener(this);
+
+  lbl1 = new JLabel("Año de muerte");
+  lbl1.setBounds(280,17,150,30);
+  add(lbl1);
+
+ }
+
+ public void actionPerformed(ActionEvent evBoton){
+  if(evBoton.getSource() == btn)
+  {
+    res = (77 - Integer.parseInt(txtfld1.getText())) + 2020;
+    s = "" + res;
+    lbl1.setText(s);
+  }
+} 
+
+ public static void main(String args[]){
+  Problema7 calc1 = new Problema7();
+  calc1.setBounds(0,0,750,150);
+  calc1.setVisible(true);
+  calc1.setResizable(false);
+  calc1.setLocationRelativeTo(null);
+  calc1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ }
+}
