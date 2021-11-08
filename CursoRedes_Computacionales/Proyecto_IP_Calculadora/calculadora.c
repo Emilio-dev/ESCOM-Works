@@ -14,7 +14,6 @@ void CalcularClaseMascara();
 void menu(char clase, IP IP);
 void Calcular(char clase, int nedh, int sub, int p, IP IP);
 void CalcularSubRedes(IP Ip, int sub, int hosts);
-void Otro(IP Ip, int sub, int final, int octeto);
 void ListaHosts(IP *IP_List, int hosts, int octeto, int x);
 
 void main()
@@ -250,7 +249,7 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
                 IP_List[i].segundo = a;
                 IP_List[i].tercero = Ip.tercero;
                 IP_List[i].cuarto = Ip.cuarto;
-                a += IP_List[i - 1].segundo + pow(2, final);
+                a += pow(2, final);
                 if (a >= 255)
                 {
                     a = Ip.segundo;
@@ -273,7 +272,7 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
                 IP_List[i].segundo = Ip.segundo + b;
                 IP_List[i].tercero = a;
                 IP_List[i].cuarto = Ip.cuarto;
-                a += IP_List[i - 1].tercero + pow(2, final);
+                a += pow(2, final);
                 if (a >= 255)
                 {
                     a = Ip.tercero;
@@ -295,7 +294,7 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
                 IP_List[i].segundo = Ip.segundo + c;
                 IP_List[i].tercero = Ip.tercero + b;
                 IP_List[i].cuarto = a;
-                a += IP_List[i - 1].cuarto + pow(2, final);
+                a += pow(2, final);
                 if (a >= 255)
                 {
                     a = Ip.cuarto;
@@ -318,7 +317,7 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
             printf("%d.%d.%d.%d\n", IP_List[i].primero, IP_List[i].segundo, IP_List[i].tercero, IP_List[i].cuarto);
         ListaHosts(IP_List, hosts, octeto, x);
     }
-    else
+    else if (x >= sub)
     {
         IP *IP_List = ((IP *)malloc(sizeof(IP) * x));
         printf("Cantidad de SubRedes:%d,Incremento:2^%d,Octeto a incrementar:%d,hosts por subred:%d\n", x, final, octeto, hosts);
