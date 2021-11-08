@@ -82,7 +82,7 @@ void CalcularClaseMascara()
     {
         for (int i = 0; i < 32; i++)
             IP.mascara[i] = 0;
-        if (IP.primero < 127)
+        if (IP.primero < 128)
         {
             printf("IP Clase A\n");
             if (IP.mask == 0)
@@ -106,9 +106,13 @@ void CalcularClaseMascara()
             IP = conversor(IP);
             menu('c', IP);
         }
-        else
+        else if(IP.primero > 223 && IP.primero < 240)
         {
             printf("IP Clase D\n");
+        }
+        else if(IP.primero > 239 && IP.primero < 256)
+        {
+            printf("IP Clase E\n");
         }
     }
     else
@@ -198,9 +202,9 @@ void Calcular(char clase, int nedh, int sub, int p, IP IP)
         else if (p < IP.mask)
             i = IP.mask - p;
         hosts -= i;
-        nedh = (pow(2, hosts) - 2);
+        nedh = (pow(2, i) - 2);
         IP.mask = p;
-        
+
     }
     printf("Nuevos datos\n");
     IP = conversor(IP);
@@ -219,7 +223,7 @@ void Calcular(char clase, int nedh, int sub, int p, IP IP)
 
 void CalcularSubRedes(IP Ip, int sub, int hosts)
 {
-    int i, final = 7, octeto = 1, x, a,b=0,j;
+    int i, final = 7, octeto = 1, x, a=0,b=0,j,c=0,d=0;
     for (i = 0; i <= 31; i++)
     {
         if (Ip.mascara[i] == 0)
@@ -252,6 +256,10 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
                 a = Ip.segundo;
                 b++;
             }
+            if(b>=255){
+               b = 0;
+               c++; 
+            }
         }
     }
     if (octeto == 3)
@@ -260,14 +268,18 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
        
         for (i = 0; i < sub; i++)
         {
-            IP_List[i].primero = Ip.primero;
+            IP_List[i].primero = Ip.primero+c;
             IP_List[i].segundo = Ip.segundo+b;
             IP_List[i].tercero = a;
             IP_List[i].cuarto = Ip.cuarto;
-             a += IP_List[i-1].tercero + pow(2, final);
+            a += IP_List[i-1].tercero + pow(2, final);
              if(a>=255){
                 a = Ip.tercero;
                 b++;
+            }
+            if(b>=255){
+               b = 0;
+               c++; 
             }
         }
     }
@@ -276,14 +288,22 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
         a = Ip.cuarto;
         for (i = 1; i < sub; i++)
         {
-            IP_List[i].primero = Ip.primero;
-            IP_List[i].segundo = Ip.segundo;
+            IP_List[i].primero = Ip.primero+d;
+            IP_List[i].segundo = Ip.segundo+c;
             IP_List[i].tercero = Ip.tercero+b;
             IP_List[i].cuarto =  a;
             a += IP_List[i-1].cuarto + pow(2, final);
             if(a>=255){
                 a = Ip.cuarto;
                 b++;
+            }
+            if(b>=255){
+               b = 0;
+               c++; 
+            }
+            if(c>=255){
+               c = 0;
+               d++; 
             }
         }
     }
