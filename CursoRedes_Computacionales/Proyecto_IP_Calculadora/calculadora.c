@@ -19,7 +19,13 @@ void ListaHosts(IP *IP_List, int hosts, int octeto, int x);
 
 void main()
 {
-    CalcularClaseMascara();
+    int s;
+    do
+    {
+        CalcularClaseMascara();
+        printf("Desea ingresar otra IP?\n1.-si\n2.-no\n");
+        scanf("%d", &s);
+    } while (s != 2);
 }
 
 IP conversor(IP IP)
@@ -72,39 +78,42 @@ void CalcularClaseMascara()
     char clase;
     printf("introduce la ip con el formato xxx.xxx.xxx.xxx/X\n");
     scanf("%d.%d.%d.%d/%d", &IP.primero, &IP.segundo, &IP.tercero, &IP.cuarto, &IP.mask);
-    /*if(IP.primero<255 || IP.primero>255)
+    if (IP.primero >= 0 && IP.primero <= 255 && IP.segundo >= 0 && IP.segundo <= 255 && IP.tercero >= 0 && IP.tercero <= 255 && IP.cuarto >= 0 && IP.cuarto <= 255 && IP.mask >= 0 && IP.mask <= 32)
     {
-
-    } */
-    for (int i = 0; i < 32; i++)
-        IP.mascara[i] = 0;
-    if (IP.primero < 127)
-    {
-        printf("IP Clase A\n");
-        if (IP.mask == 0)
-            IP.mask = 8;
-        IP = conversor(IP);
-        menu('a', IP);
-    }
-    if (IP.primero > 127 && IP.primero < 192)
-    {
-        printf("IP Clase B\n");
-        if (IP.mask == 0)
-            IP.mask = 16;
-        IP = conversor(IP);
-        menu('b', IP);
-    }
-    if (IP.primero > 191 && IP.primero < 224)
-    {
-        printf("IP Clase C\n");
-        if (IP.mask == 0)
-            IP.mask = 24;
-        IP = conversor(IP);
-        menu('c', IP);
+        for (int i = 0; i < 32; i++)
+            IP.mascara[i] = 0;
+        if (IP.primero < 127)
+        {
+            printf("IP Clase A\n");
+            if (IP.mask == 0)
+                IP.mask = 8;
+            IP = conversor(IP);
+            menu('a', IP);
+        }
+        if (IP.primero > 127 && IP.primero < 192)
+        {
+            printf("IP Clase B\n");
+            if (IP.mask == 0)
+                IP.mask = 16;
+            IP = conversor(IP);
+            menu('b', IP);
+        }
+        if (IP.primero > 191 && IP.primero < 224)
+        {
+            printf("IP Clase C\n");
+            if (IP.mask == 0)
+                IP.mask = 24;
+            IP = conversor(IP);
+            menu('c', IP);
+        }
+        else
+        {
+            printf("IP Clase D\n");
+        }
     }
     else
     {
-        printf("IP Clase D\n");
+        printf("IP no valida.\n");
     }
 }
 
@@ -121,33 +130,38 @@ void menu(char clase, IP IP)
         printf("%d", IP.mascara[i]);
     }
     printf("\n");
-    do
+
+    printf("\n   1. Calcular el numero de Host que yo quiera que tenga cada subred ");
+    printf("\n   2. Calcular el numero de subredes en las que quiero subdividir la red");
+    printf("\n   3. Calcular el prefijo que deseo que tengan las subredes");
+    printf("\n   4. Salir.");
+    printf("\n\n   Introduzca opcicion (1-4): ");
+    scanf("%d", &opcion);
+    switch (opcion)
     {
-        printf("\n   1. Calcular el numero de Host que yo quiera que tenga cada subred ");
-        printf("\n   2. Calcular el numero de subredes en las que quiero subdividir la red");
-        printf("\n   3. Calcular el prefijo que deseo que tengan las subredes");
-        printf("\n   4. Salir.");
-        printf("\n\n   Introduzca opcicion (1-4): ");
-        scanf("%d", &opcion);
-        switch (opcion)
-        {
-        case 1:
-            printf("Introduzca la cantidad de hosts\n");
-            scanf("%d", &nedh);
-            Calcular(clase, nedh, sub, p, IP);
-            break;
-        case 2:
-            printf("Introduzca la cantidad de subredes\n");
-            scanf("%d", &sub);
-            Calcular(clase, nedh, sub, p, IP);
-            break;
-        case 3:
-            printf("Introduzca el prefijo deseado\n");
-            scanf("%d", &p);
-            Calcular(clase, nedh, sub, p, IP);
-            break;
-        }
-    } while (opcion != 4);
+    case 1:
+        printf("Introduzca la cantidad de hosts\n");
+        scanf("%d", &nedh);
+        Calcular(clase, nedh, sub, p, IP);
+        break;
+    case 2:
+        printf("Introduzca la cantidad de subredes\n");
+        scanf("%d", &sub);
+        Calcular(clase, nedh, sub, p, IP);
+        break;
+    case 3:
+        printf("Introduzca el prefijo deseado\n");
+        scanf("%d", &p);
+        Calcular(clase, nedh, sub, p, IP);
+        break;
+    case 4:
+        printf("Adios");
+        exit(1);
+        break;
+    default:
+        printf("opcion no valida");
+        break;
+    }
 }
 
 void Calcular(char clase, int nedh, int sub, int p, IP IP)
@@ -173,13 +187,20 @@ void Calcular(char clase, int nedh, int sub, int p, IP IP)
         for (i = 0; i < 22; i++)
             if (pow(2, i) >= sub)
                 break;
+        hosts -= i;
+        nedh = (pow(2, hosts) - 2);
         IP.mask += i;
-        i -= hosts;
-        nedh = (2, i);
     }
     else if (p != 0)
     {
+        if (IP.mask < p)
+            i = p - IP.mask;
+        else if (p < IP.mask)
+            i = IP.mask - p;
+        hosts -= i;
+        nedh = (pow(2, hosts) - 2);
         IP.mask = p;
+        
     }
     printf("Nuevos datos\n");
     IP = conversor(IP);
@@ -198,7 +219,7 @@ void Calcular(char clase, int nedh, int sub, int p, IP IP)
 
 void CalcularSubRedes(IP Ip, int sub, int hosts)
 {
-    int i, final = 7, octeto = 1, x, a;
+    int i, final = 7, octeto = 1, x, a,b=0,j;
     for (i = 0; i <= 31; i++)
     {
         if (Ip.mascara[i] == 0)
@@ -215,11 +236,66 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
     x++;
     if (x < sub)
     {
-        printf("no se pueden crear tantas subredes");
-        exit(0);
+    IP *IP_List = ((IP *)malloc(sizeof(IP) * sub));
+    printf("Cantidad de SubRedes:%d,Incremento:2^%d,Octeto a incrementar:%d,hosts por subred:%d\n", sub, final, octeto, hosts);
+    if (octeto == 2)
+    {
+        a = Ip.segundo;
+        for (i = 1; i < sub; i++)
+        {
+            IP_List[i].primero = Ip.primero+b;
+            IP_List[i].segundo = a;
+            IP_List[i].tercero = Ip.tercero;
+            IP_List[i].cuarto = Ip.cuarto;
+            a += IP_List[i-1].segundo + pow(2, final);
+             if(a>=255){
+                a = Ip.segundo;
+                b++;
+            }
+        }
     }
+    if (octeto == 3)
+    {
+        a = Ip.tercero;
+       
+        for (i = 0; i < sub; i++)
+        {
+            IP_List[i].primero = Ip.primero;
+            IP_List[i].segundo = Ip.segundo+b;
+            IP_List[i].tercero = a;
+            IP_List[i].cuarto = Ip.cuarto;
+             a += IP_List[i-1].tercero + pow(2, final);
+             if(a>=255){
+                a = Ip.tercero;
+                b++;
+            }
+        }
+    }
+    if (octeto == 4)
+    {
+        a = Ip.cuarto;
+        for (i = 1; i < sub; i++)
+        {
+            IP_List[i].primero = Ip.primero;
+            IP_List[i].segundo = Ip.segundo;
+            IP_List[i].tercero = Ip.tercero+b;
+            IP_List[i].cuarto =  a;
+            a += IP_List[i-1].cuarto + pow(2, final);
+            if(a>=255){
+                a = Ip.cuarto;
+                b++;
+            }
+        }
+    }
+
+    for (i = 0; i < sub; i++)
+        printf("%d.%d.%d.%d\n", IP_List[i].primero, IP_List[i].segundo, IP_List[i].tercero, IP_List[i].cuarto);
+    ListaHosts(IP_List, hosts, octeto, x);
+    }
+    else
+    {
     IP *IP_List = ((IP *)malloc(sizeof(IP) * x));
-    printf("Cantidad de SubRedes:%d,Incremento:2^%d,Octeto a incrementar:%d,hosts:%d\n", x, final, octeto, hosts);
+    printf("Cantidad de SubRedes:%d,Incremento:2^%d,Octeto a incrementar:%d,hosts por subred:%d\n", x, final, octeto, hosts);
     if (octeto == 2)
     {
         IP_List[0].primero = Ip.primero;
@@ -271,7 +347,7 @@ void CalcularSubRedes(IP Ip, int sub, int hosts)
     for (i = 0; i < x; i++)
         printf("%d.%d.%d.%d\n", IP_List[i].primero, IP_List[i].segundo, IP_List[i].tercero, IP_List[i].cuarto);
     ListaHosts(IP_List, hosts, octeto, x);
-    exit(0);
+    }
 }
 
 void ListaHosts(IP *IP_List, int hosts, int octeto, int x)
@@ -317,3 +393,4 @@ void ListaHosts(IP *IP_List, int hosts, int octeto, int x)
     for (i = 0; i < hosts; i++)
         printf("%d.%d.%d.%d\n", IP_Hosts[i].primero, IP_Hosts[i].segundo, IP_Hosts[i].tercero, IP_Hosts[i].cuarto);
 }
+
