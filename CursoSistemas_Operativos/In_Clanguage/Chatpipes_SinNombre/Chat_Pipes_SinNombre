@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+int parentPipe[2] = {0, 1};
+int childPipe[2] = {0, 1};
+int length;
+char *message={NULL};
+int a = 0;
+
+void main()
+{
+
+    pipe(parentPipe);
+    pipe(childPipe);
+
+    message = (char *)malloc(sizeof(char));
+    int a;
+    a = fork();
+    do
+    {
+        if (a == 0)
+        {
+            printf("Proceso hijo : pid :%d ppid:%d\n", getpid(), getppid());
+            if (!strcmp(message, "FIN"))
+                exit(0);
+            read(parentPipe[1], message, length);
+            close(parentPipe[1]);
+            close(childPipe[1]);
+            printf("El padre dice:%s : Child Process manda: ", message);
+            scanf("%s", message);
+
+            length = strlen(message);
+
+            write(childPipe[0], message, length);
+            close(childPipe[0]);
+        }
+        else
+        {
+                printf("Pid Proceso padre original: %d\n", getpid());
+
+            if (!strcmp(message, "FIN"))
+                exit(0);
+            read(childPipe[1], message, length);
+            close(childPipe[1]);
+            close(parentPipe[1]);
+
+            printf("El hijo dice: %s Parent Process manda: ", message);
+            scanf("%s", message);
+
+            length = strlen(message);
+
+            write(parentPipe[0], message, length);
+            close(parentPipe[0]);
+        }
+    } while (strcmp(message, "FIN"));
+}
