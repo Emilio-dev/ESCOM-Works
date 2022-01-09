@@ -1,0 +1,10 @@
+CC = gcc
+CFLAGS = -Wall
+LDFLAGS = -lpthread
+INPUTCFILES = proyecto.c
+OUTPUTFILE = proyecto
+
+all: $(OUTPUTFILE)
+
+$(OUTPUTFILE): $(INPUTCFILES)
+	$(CC) $(CFLAGS) -o $(OUTPUTFILE) $(INPUTCFILES) $(LDFLAGS)
