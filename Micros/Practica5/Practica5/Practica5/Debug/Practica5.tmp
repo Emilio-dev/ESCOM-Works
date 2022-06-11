@@ -1,0 +1,39 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>D:\School Programs\MicroChip Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\Debug\Practica5.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica5.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica5.map</FILE>
+  <FILE>Practica5.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <digit><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>17</LINE></digit>
+  <reset><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>41</LINE></reset>
+  <INT0_vect><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>111</LINE></INT0_vect>
+  <timer0_ovf><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>132</LINE></timer0_ovf>
+  <main><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>107</LINE></main>
+  <dece><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>117</LINE></dece>
+  <cen><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>122</LINE></cen>
+  <overflow><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>129</LINE></overflow>
+  <toggle><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>135</LINE></toggle>
+  <menos><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>175</LINE></menos>
+  <delay_2ms><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>180</LINE></delay_2ms>
+  <laz2><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>181</LINE></laz2>
+  <laz1><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica5\Practica5\Practica5\main.asm</FILE><LINE>182</LINE></laz1>
+ </LABELS>
+</ASSEMBLER_INFO>

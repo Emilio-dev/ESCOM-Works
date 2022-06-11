@@ -1,0 +1,69 @@
+#Start recording tcl command: 3/9/2022 08:52:40
+#Project Location: C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1; Project name: Practica1
+prj_project open "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Practica1.ldf"
+rvl_project new
+rvl_project new
+rvl_project new
+prj_strgy set_value -strategy Strategy1 syn_vhdl2008=True
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+prj_src exclude "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Mayor_o_Menor.vhd"
+prj_src enable "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Comparador.vhd"
+rvl_project new
+rvl_project close -force
+rvl_project new
+rvl_project close -force
+prj_src exclude "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Comparador.vhd"
+prj_src enable "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Mayor_o_Menor.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+rvl_project new
+rvl_project close -force
+prj_src exclude "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Mayor_o_Menor.vhd"
+prj_src enable "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoD.vhd"
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project close -force
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src enable "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoI.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src remove "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoD.vhd"
+prj_src remove "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoI.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Ram.vhd"
+rvl_project new
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+rvl_project close -force
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project close -force
+rvl_project new
+rvl_project new
+rvl_project close -force
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src exclude "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Ram.vhd"
+#Stop recording: 3/9/2022 11:45:34

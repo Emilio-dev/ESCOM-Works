@@ -5,7 +5,6 @@ entity tres is
 	port(
 		A:in std_logic_vector(2 downto 0);
 		O: out std_logic_vector(7 downto 0));
-		
 	end tres;
 	
 	architecture siete of tres is

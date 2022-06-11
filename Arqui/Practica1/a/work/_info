@@ -1,0 +1,733 @@
+m255
+K4
+z2
+!s11e vcom 2020.3 2020.10, Oct 14 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/link0/Desktop/Escuela/Arqui/Practica1/a
+Eand_gate
+Z1 w1646853741
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 14
+R0
+Z6 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd
+Z7 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd
+l0
+L5 1
+Vj70QQ`d38H7M<>oM=?XTg0
+!s100 I43K5giS>MVcS7c=z1<7G0
+Z8 OT;C;2020.3;71
+32
+Z9 !s110 1647320765
+!i10b 1
+Z10 !s108 1647320765.000000
+Z11 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd|
+Z12 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd|
+!i113 1
+Z13 o-work work -O0
+Z14 tExplicit 1 CvgOpt 0
+Aandlogic
+R2
+R3
+R4
+R5
+DEx4 work 8 and_gate 0 22 j70QQ`d38H7M<>oM=?XTg0
+!i122 14
+l12
+Z15 L11 4
+VJCWJcJ;?G?5ADT==VRXZM3
+!s100 3o@RkKn:mRoagUHLi]Y8e3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ecomparador
+Z16 w1646838295
+R2
+R3
+R4
+R5
+!i122 4
+R0
+Z17 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd
+Z18 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd
+l0
+L5 1
+VQM@XCRJgzG:V0lgoSJJc;0
+!s100 6XWEz8dlNkjangcU1L^gO3
+R8
+32
+Z19 !s110 1647320764
+!i10b 1
+Z20 !s108 1647320764.000000
+Z21 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd|
+Z22 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd|
+!i113 1
+R13
+R14
+Aarq_comp
+R2
+R3
+R4
+R5
+DEx4 work 10 comparador 0 22 QM@XCRJgzG:V0lgoSJJc;0
+!i122 4
+l12
+Z23 L11 11
+VT9m`lMgR5P4=`H<LJX<Pd0
+!s100 ]HaM1jVcj[LcB^=6ni2of1
+R8
+32
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R13
+R14
+Ediferencia
+Z24 w1646885988
+R2
+R3
+R4
+R5
+!i122 5
+R0
+Z25 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd
+Z26 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd
+l0
+L5 1
+V?DOiR_SXEFCEk=1ib;37f0
+!s100 J?<aW=Rb<czLl>ff2TjDn3
+R8
+32
+R19
+!i10b 1
+R20
+Z27 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd|
+Z28 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd|
+!i113 1
+R13
+R14
+Aarq_comp
+R2
+R3
+R4
+R5
+DEx4 work 10 diferencia 0 22 ?DOiR_SXEFCEk=1ib;37f0
+!i122 5
+l12
+R23
+V8TYYZOEU<]6ELP]IjPQh<2
+!s100 6?8og8gIkPNK_d8mRmm4z1
+R8
+32
+R19
+!i10b 1
+R20
+R27
+R28
+!i113 1
+R13
+R14
+Elcd_decrypter
+Z29 w1647318611
+Z30 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R2
+Z31 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+R4
+R5
+!i122 0
+R0
+Z32 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd
+Z33 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd
+l0
+L15 1
+V;ENag3C0AONUm2zWOWQNE1
+!s100 `;Q5oUCS6cz7a13YaF[`93
+R8
+32
+Z34 !s110 1647320763
+!i10b 1
+Z35 !s108 1647320763.000000
+Z36 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd|
+Z37 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd|
+!i113 1
+R13
+R14
+Actrl_lcd
+R30
+R2
+R31
+R4
+R5
+DEx4 work 13 lcd_decrypter 0 22 ;ENag3C0AONUm2zWOWQNE1
+!i122 0
+l70
+L22 85
+ViJ`mhNeP8Q^_>512^a2K=1
+!s100 gNK^l08HDaa@kSaM[m>6X2
+R8
+32
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R13
+R14
+Elcd_main
+Z38 w1647320445
+R2
+R3
+R4
+R5
+!i122 1
+R0
+Z39 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_main.vhd
+Z40 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_main.vhd
+l0
+L18 1
+V52d>QV2=1h@nQ8F5UdA3G0
+!s100 ab<j9V_bMac3OR8Zod6Dg2
+R8
+32
+R34
+!i10b 1
+R35
+Z41 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_main.vhd|
+Z42 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_main.vhd|
+!i113 1
+R13
+R14
+Abehaviour
+R2
+R3
+R4
+R5
+DEx4 work 8 lcd_main 0 22 52d>QV2=1h@nQ8F5UdA3G0
+!i122 1
+l47
+L28 226
+VjNA;3SK?]m2YmiOc2Si222
+!s100 6^7=7HbQZQj=LoKZHnnf]2
+R8
+32
+R34
+!i10b 1
+R35
+R41
+R42
+!i113 1
+R13
+R14
+Em_ram
+Z43 w1646945055
+R2
+R3
+R4
+R5
+!i122 2
+R0
+Z44 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd
+Z45 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd
+l0
+L5 1
+V0T<B<HcR;E2dHOWlB1lR;1
+!s100 B]N_QG[@6PZ?[OOVj_;4:0
+R8
+32
+R34
+!i10b 1
+R35
+Z46 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd|
+Z47 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd|
+!i113 1
+R13
+R14
+Aarq_mem
+R2
+R3
+R4
+R5
+DEx4 work 5 m_ram 0 22 0T<B<HcR;E2dHOWlB1lR;1
+!i122 2
+l18
+L12 57
+V0dXaoD]bDfBGVKY^831=O0
+!s100 W5W;9R5ozKZmdNf[C>=a11
+R8
+32
+R34
+!i10b 1
+R35
+R46
+R47
+!i113 1
+R13
+R14
+Enot_gate
+Z48 w1646785173
+R2
+R3
+R4
+R5
+!i122 13
+R0
+Z49 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd
+Z50 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd
+l0
+L5 1
+VOd<?icc:`Cm11XeIb2Sll1
+!s100 AJgJ2>Sg5W:Z2O24g;lTR3
+R8
+32
+R9
+!i10b 1
+R10
+Z51 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd|
+Z52 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd|
+!i113 1
+R13
+R14
+Anotlogic
+R2
+R3
+R4
+R5
+DEx4 work 8 not_gate 0 22 Od<?icc:`Cm11XeIb2Sll1
+!i122 13
+l11
+L10 4
+Vg`Z]^@=MP[Zfd2TE=1B`d3
+!s100 bbz<U1cMjmAjo^oHZL3D?1
+R8
+32
+R9
+!i10b 1
+R10
+R51
+R52
+!i113 1
+R13
+R14
+Eor_gate
+Z53 w1646777461
+R2
+R3
+R4
+R5
+!i122 12
+R0
+Z54 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd
+Z55 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd
+l0
+L5 1
+V>iK>C6Bd@N5T^oOk1_XIK2
+!s100 mKR9Yj^g=_@A2Dc1]If5k2
+R8
+32
+R9
+!i10b 1
+R10
+Z56 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd|
+Z57 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd|
+!i113 1
+R13
+R14
+Aorlogic
+R2
+R3
+R4
+R5
+DEx4 work 7 or_gate 0 22 >iK>C6Bd@N5T^oOk1_XIK2
+!i122 12
+l12
+R15
+VK]ANiQd3BaTn`Hi>7_7Na0
+!s100 IK00n7Y=;_MGH95U4fK<k1
+R8
+32
+R9
+!i10b 1
+R10
+R56
+R57
+!i113 1
+R13
+R14
+Erestador
+Z58 w1646888853
+R2
+R3
+R4
+R5
+!i122 7
+R0
+Z59 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd
+Z60 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd
+l0
+L5 1
+V=Nj6z7J@;Vig;7?^3[mLL0
+!s100 8mCRzMQ_B`=An]U?j8fjA1
+R8
+32
+R19
+!i10b 1
+R20
+Z61 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd|
+Z62 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd|
+!i113 1
+R13
+R14
+Aarq_restador
+R2
+R3
+R4
+R5
+DEx4 work 8 restador 0 22 =Nj6z7J@;Vig;7?^3[mLL0
+!i122 7
+l22
+L11 81
+VGMT2iWFU1zz`27Q^M8NjM3
+!s100 Pb@4F;>2BCY=0GglDSKiE1
+R8
+32
+R19
+!i10b 1
+R20
+R61
+R62
+!i113 1
+R13
+R14
+Erestador_unbit
+Z63 w1646781160
+R2
+R3
+R4
+R5
+!i122 6
+R0
+Z64 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd
+Z65 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd
+l0
+L5 1
+VWM@ATm=VVMc;GS7cLk_^>1
+!s100 m@SbceWaJ:jS4UKT6]5nc2
+R8
+32
+R19
+!i10b 1
+R20
+Z66 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd|
+Z67 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd|
+!i113 1
+R13
+R14
+Arestador1_arq
+R2
+R3
+R4
+R5
+DEx4 work 14 restador_unbit 0 22 WM@ATm=VVMc;GS7cLk_^>1
+!i122 6
+l14
+L13 5
+VC1<XNb>m3Mm1P1IE6@Yb10
+!s100 =i<JAP[^6^5;:DU>KD=Pa1
+R8
+32
+R19
+!i10b 1
+R20
+R66
+R67
+!i113 1
+R13
+R14
+Eshifter
+Z68 w1646889051
+R2
+R3
+R4
+R5
+!i122 3
+R0
+Z69 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd
+Z70 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd
+l0
+L5 1
+VEYndLWE8YjOZ`g[8?@_QO3
+!s100 ]8EeEOTIFF@cfHl0?5P6R0
+R8
+32
+R19
+!i10b 1
+R35
+Z71 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd|
+Z72 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd|
+!i113 1
+R13
+R14
+Aarq_shif
+R2
+R3
+R4
+R5
+DEx4 work 7 shifter 0 22 EYndLWE8YjOZ`g[8?@_QO3
+!i122 3
+l13
+L12 43
+VBQSQc:endeQki1X@_3oN71
+!s100 T;Xdz=zZRTO7m`i4i>L063
+R8
+32
+R19
+!i10b 1
+R35
+R71
+R72
+!i113 1
+R13
+R14
+Esumador
+Z73 w1646888860
+R2
+R3
+R4
+R5
+!i122 9
+R0
+Z74 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd
+Z75 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd
+l0
+L5 1
+VBoIzMZDN]G;2nS?11Y^dX1
+!s100 >6@lJ0_:ODKW@g<]zKPTE2
+R8
+32
+R19
+!i10b 1
+R20
+Z76 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd|
+Z77 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd|
+!i113 1
+R13
+R14
+Asumador1_arq
+R2
+R3
+R4
+R5
+DEx4 work 7 sumador 0 22 BoIzMZDN]G;2nS?11Y^dX1
+!i122 9
+l21
+L11 80
+Vm7>^fom>j=LROSXY7eRa:2
+!s100 l5Fm8C`Azd<L_IlX5Mj>>3
+R8
+32
+R19
+!i10b 1
+R20
+R76
+R77
+!i113 1
+R13
+R14
+Esumador_unbit
+Z78 w1646887971
+R2
+R3
+R4
+R5
+!i122 8
+R0
+Z79 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd
+Z80 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd
+l0
+L5 1
+VG8Udk9d4h3AA?iT0P[9BS3
+!s100 SG6VbKV;h`T5db>T7[z>43
+R8
+32
+R19
+!i10b 1
+R20
+Z81 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd|
+Z82 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd|
+!i113 1
+R13
+R14
+Asumador1_arq
+R2
+R3
+R4
+R5
+DEx4 work 13 sumador_unbit 0 22 G8Udk9d4h3AA?iT0P[9BS3
+!i122 8
+l12
+L11 5
+VTNF9mbL=O9M;RFJUk?UKo1
+!s100 0=97_oV[<MVAoPY<L>TA]2
+R8
+32
+R19
+!i10b 1
+R20
+R81
+R82
+!i113 1
+R13
+R14
+Etop
+Z83 w1647320738
+R2
+R3
+R4
+R5
+!i122 15
+R0
+Z84 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd
+Z85 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd
+l0
+L5 1
+VQCMKo2PGC<:ddnQHi:lVf2
+!s100 iRk;IHV_lNJ^DCoDaXg^T2
+R8
+32
+R9
+!i10b 1
+R10
+Z86 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd|
+!s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd|
+!i113 1
+R13
+R14
+Aarqtop
+R2
+R3
+R4
+R5
+DEx4 work 3 top 0 22 QCMKo2PGC<:ddnQHi:lVf2
+!i122 15
+l94
+L14 137
+VKYdOTz1B@^Y]EXz79XMT_0
+!s100 2<lG5aGKWH2hMnMQ2J73h2
+R8
+32
+R9
+!i10b 1
+R10
+R86
+Z87 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd|
+!i113 1
+R13
+R14
+Exnor_gate
+Z88 w1646886169
+R2
+R3
+R4
+R5
+!i122 10
+R0
+Z89 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xnor.vhd
+Z90 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xnor.vhd
+l0
+L5 1
+VM;5V12i61`=@c7>1nf>iX1
+!s100 fcSOWVhAm8FTVzga;@6UZ1
+R8
+32
+R19
+!i10b 1
+R20
+Z91 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xnor.vhd|
+Z92 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xnor.vhd|
+!i113 1
+R13
+R14
+Axorlogic
+R2
+R3
+R4
+R5
+DEx4 work 9 xnor_gate 0 22 M;5V12i61`=@c7>1nf>iX1
+!i122 10
+l12
+R15
+Vm^@2MkHT`_eocLWYJiKTG2
+!s100 9>?=mP?:T5fLEV;he5n5Q2
+R8
+32
+R19
+!i10b 1
+R20
+R91
+R92
+!i113 1
+R13
+R14
+Exor_gate
+Z93 w1646777464
+R2
+R3
+R4
+R5
+!i122 11
+R0
+Z94 8C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xor.vhd
+Z95 FC:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xor.vhd
+l0
+L5 1
+V]LZgP>QL[;:KQ=eZWZFLF1
+!s100 kMBMf<>[gS9hK>M>h>8:Z1
+R8
+32
+R9
+!i10b 1
+R20
+Z96 !s90 -reportprogress|300|-work|work|C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xor.vhd|
+Z97 !s107 C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xor.vhd|
+!i113 1
+R13
+R14
+Axorlogic
+R2
+R3
+R4
+R5
+DEx4 work 8 xor_gate 0 22 ]LZgP>QL[;:KQ=eZWZFLF1
+!i122 11
+l12
+R15
+V4UO4D^:j0eHI@29g2TccK1
+!s100 32@i=5CEaJ76X^4H?HNEn0
+R8
+32
+R9
+!i10b 1
+R20
+R96
+R97
+!i113 1
+R13
+R14

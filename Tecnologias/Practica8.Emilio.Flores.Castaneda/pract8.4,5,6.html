@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<head>
+
+    <head>
+        <title>Ejercicio4,5,6</title>
+        <link rel="icon" href="Recursos/icono.ico" type="image/x-icon">
+    </head>
+</head>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        margin-left: 30px;
+        padding: 5px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: lightslategray;
+    }
+
+    .global {
+        border-radius: 25px;
+        background: grey;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .parent {
+        display: flex;
+        width: 620px;
+    }
+
+    #header {
+        width: 600px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    #nav {
+        width: 600px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    #article {
+        flex: 1;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    #sidebar {
+        flex: 1;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+        margin-left: 10px;
+    }
+
+    .link {
+        border-radius: 25px;
+        background: rgb(48, 47, 47);
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #footer {
+        width: 600px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+</style>
+
+<body>
+
+    <div class="global" id="header">
+        Lorem Ipsum
+    </div>
+    <div class="global" id="nav">
+        <ul>
+            <li><a href="Recursos/home.html" target="section">Home</a></li>
+            <li><a href="Recursos/news.html" target="section">News</a></li>
+            <li><a href="Recursos/contact.html" target="section">Contact</a></li>
+            <li><a href="Recursos/about.html" target="section">About</a></li>
+            <li><a href="Recursos/download.html" target="section">Downloads</a></li>
+            <li><a href="Recursos/support.html" target="section">Support</a></li>
+        </ul>
+    </div>
+    <div class="parent">
+        <div class="global" id="article">
+            Articulos<br>ㅤ
+            <div id="section">
+                <iframe src="Recursos/home.html" class="link" name="section"></iframe>
+            </div>
+        </div>
+        <div class="global" id="sidebar">
+            <p> Proin imperdiet est lacus, et lacinia mauris aliquet quis. Quisque tempus elit nec viverra volutpat.
+                Curabitur aliquam purus ac purus tempor, ut pellentesque massa varius. Maecenas vel mi feugiat, ornare
+                mi
+                ac, pellentesque arcu. Fusce vulputate, nibh ac gravida auctor, magna diam interdum orci, id
+                pellentesque
+                magna ex et lacus.</p>
+        </div>
+    </div>
+    <div class="global" id="footer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit urna, dictum id lacus tincidunt, porta
+            tempus
+            nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacus ipsum, bibendum eu hendrerit
+            vitae, feugiat vel ex. Quisque interdum tincidunt lectus, quis hendrerit neque blandit quis. Vivamus non
+            accumsan lectus, semper dapibus urna.</p>
+    </div>
+
+</body>
+
+</html>

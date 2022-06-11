@@ -1,0 +1,45 @@
+if {![file exists "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.mpf"]} { 
+	project new "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a" a
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_main.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xnor.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xor.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_main.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xnor.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xor.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd"
+} else {
+	project open "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_machxo2  top
+view wave
+add wave /*
+run 1000ns

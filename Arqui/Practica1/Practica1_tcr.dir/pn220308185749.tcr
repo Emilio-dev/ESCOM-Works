@@ -1,0 +1,40 @@
+#Start recording tcl command: 3/8/2022 16:17:02
+#Project Location: C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1; Project name: Practica1
+prj_project new -name "Practica1" -impl "impl1" -dev LCMXO2-1200HC-5TG144C -synthesis "synplify"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/And.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Multiplicador.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Not.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Or.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Sumador.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/XOR.vhd"
+prj_project save
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/A/A.spf"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Sumador_unbit.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src remove "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Multiplicador.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Multiplicador.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Multiplicador_unbit.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Restador.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Restador_unbit.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src remove "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Multiplicador.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Multiplicador_unbit.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoD.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoI.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+rvl_project new
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterD.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterI.vhd"
+prj_src remove "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterD.vhd"
+prj_src remove "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterI.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterD,I.vhd"
+rvl_project new
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src remove "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterD,I.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterD_I.vhd"
+prj_src exclude "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/And.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Not.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Or.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/XOR.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Sumador.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Sumador_unbit.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Restador.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Restador_unbit.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoD.vhd" "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/CorrimientoI.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Comparador.vhd"
+prj_src exclude "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/ShifterD_I.vhd"
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project close -force
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/a/a.spf"
+prj_src exclude "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Comparador.vhd"
+prj_src add "C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica1/Codes/Mayor_o_Menor.vhd"
+#Stop recording: 3/8/2022 18:57:49

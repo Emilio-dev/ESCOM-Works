@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<head>
+        <title>Formulario de Inscripcion</title>
+        <link rel="icon" href="Recursos/icono.ico" type="image/x-icon">
+        <link rel="stylesheet" href="Recursos/mystyle.css">
+</head>
+<div class="global" id="header">
+    FORMULARIO DE INSCRIPCION
+</div>
+<div class="global" id="subheader">
+    DATOS PERSONALES
+</div>
+<form action="submit.php?id=0 & op=1" method="post">
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="questions" colspan="2"><label for="nombre">Nombre</label></td>
+                <td class="answers" colspan="4"><input  type="text" id="nombre" name="nombre" required
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2"><label for="apellido">Apellido</label></td>
+                <td class="answers" colspan="4"><input  type="text" id="apellido" name="apellido" required
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;" required></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2"><label for="direccion">Direccion</label></td>
+                <td class="answers" colspan="4"><input  type="text" id="direccion" name="direccion" required
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;" required></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2"><label for="telefono">Telefono</label></td>
+                <td class="answers" colspan="4"><input  type="tel" id="telefono" name="telefono" required
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;" required></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2"><label for="correo">Correo</label></td>
+                <td class="answers" colspan="4"><input  type="email" id="correo" name="correo" required
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;" required></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2"><label for="documento">Documento</label></td>
+                <td class="answers"><input type="radio" name="documento" value="si" required><label for="radio">Si</label><input type="radio" name="documento" value="no" required><label for="radio">No</label></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2"><label for="fechaNacimiento">Fecha de Nacimiento</label></td>
+                <td class="answers" colspan="4"><input  type="date" id="fechaNacimiento" name="fechaNacimiento" required ></td>
+            </tr>
+        </tbody>
+    </table>
+<div class="global" id="subheader">
+    CAPACITACION
+</div>
+
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="questions">Curso</td>
+                <td class="answers">
+                    <select name="curso" id="curso" required>
+                        <option value="">Elija un curso</option>
+                        <option value="Matematicas">Matematicas</option>
+                        <option value="Espanol">Espanol</option>
+                        <option value="Ingles">Ingles</option>
+                        <option value="Programacion">Programacion</option>
+                    </select>
+                </td>
+
+                <td class="questions" colspan="4">Dias</td>
+            </tr>
+            <tr>
+                <td class="questions">Horario</td>
+                <td class="answers">
+                    <select name="horario" id="horario" required>
+                        <option value="">Elija un horario</option>
+                        <option value="Matutino">Matutino</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Mixto">Mixto</option>
+                    </select>
+                </td>
+                <div>
+                <td class="answers"><label for="lunes">Lunes</label><input type="checkbox" name="dias[]" value="Lunes"> </td>
+                <td class="answers"><label for="martes">Martes</label><input type="checkbox" name="dias[]" value="Martes"> </td>
+                <td class="answers"><label for="miercoles">Miercoles</label><input type="checkbox" name="dias[]" value="Miercoles"></td>
+                <td class="answers"><label for="jueves">Jueves</label><input type="checkbox" name="dias[]" value="Jueves"> </td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+<div class="global" id="subheader">
+    PLAN DE PAGO
+</div>
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="answers"><input type="radio" placeholder="pago" name="tipoPago" value="contado" required><label for="radio"></label></td>
+                <td class="questions">Contado</td>
+                <td class="answers" colspan="4">Moneda</td>
+            </tr>
+            <tr>
+                <td class="answers"><input type="radio" placeholder="pago" name="tipoPago" value="credito" required> <label for="radio"></label></td>
+                <td class="questions">Credito</td>
+                <td class="answers" colspan="4">Tarjeta</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="global" id="subheader">
+    DATOS DE LA INSTITUCION
+</div>
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="questions"><label for="numeroContrato">N de contrato</label></td>
+                <td class="answers" colspan="5"><input  type="number" id="numeroContrato" name="numeroContrato" required
+                        placeholder="Haga clic aqui para escribir texto." style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions"><label for="personaAtendio">Persona que Atendio</label></td>
+                <td class="answers" colspan="5"><input  type="text" id="personaAtendio" name="personaAtendio" required
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;"d></td>
+            </tr>
+            <tr>
+                <td class="questions"><label for="fechaInscripcion">Fecha de Inscripcion</label></td>
+                <td class="answers" colspan="5"><input  type="date" id="fechaInscripcion" name="fechaInscripcion" required></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" name="formSubmit" value="Submit" >
+</form>
+<a href="index.html">Regresar al inicio</a>
+</html>

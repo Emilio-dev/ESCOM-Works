@@ -1,0 +1,21 @@
+if {![file exists "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/a/a.mpf"]} { 
+	project new "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/a" a
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/Sumador_unbit.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/Sumador.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/LCD_decrypter.vhd"
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/LCD_main.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/Sumador_unbit.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/Sumador.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/LCD_decrypter.vhd"
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/LCD_main.vhd"
+} else {
+	project open "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/a/a"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_machxo2  sumador
+view wave
+add wave /*
+run 1000ns

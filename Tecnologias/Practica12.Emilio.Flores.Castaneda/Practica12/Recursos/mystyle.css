@@ -1,0 +1,47 @@
+    .global {
+        padding: 20px;
+        border-collapse: collapse;
+        border: 8px solid #b76ed5;
+        width: 400px;
+    }
+
+    #header {
+        color: #b76ed5;
+        font-size:xx-large;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+    #text {
+        font-size:medium;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: center;
+        padding: 5px;
+    }
+
+    #boton {
+        background: #b76ed5;
+        border: none;
+        color: white;
+        text-align: center;
+        vertical-align: center;
+        width: 390px;
+        height: 30px;
+        border-radius: 10px;
+    }  
+
+    .header {
+        color: #b76ed5;
+        font-size:xx-large;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+    .cells {
+        border: 1px solid #b76ed5;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: center;
+        padding: 7px 5px;
+    }

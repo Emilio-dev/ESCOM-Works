@@ -1,0 +1,251 @@
+# Reading pref.tcl
+# do {C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.mdo}
+# Loading project a
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:03 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity LCD_decrypter
+# -- Compiling architecture ctrl_LCD of LCD_decrypter
+# ** Warning: C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_decrypter.vhd(30): (vcom-1013) Initial value of "result" depends on value of signal "convertions".
+# End time: 23:06:03 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:03 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/LCD_main.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity LCD_main
+# -- Compiling architecture behaviour of LCD_main
+# End time: 23:06:03 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:03 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity m_ram
+# -- Compiling architecture arq_mem of m_ram
+# End time: 23:06:03 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:03 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity shifter
+# -- Compiling architecture arq_shif of shifter
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity comparador
+# -- Compiling architecture arq_comp of comparador
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity diferencia
+# -- Compiling architecture arq_comp of diferencia
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity restador_unbit
+# -- Compiling architecture restador1_arq of restador_unbit
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity restador
+# -- Compiling architecture arq_restador of restador
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity sumador_unbit
+# -- Compiling architecture sumador1_arq of sumador_unbit
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity sumador
+# -- Compiling architecture sumador1_arq of sumador
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xnor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity xnor_gate
+# -- Compiling architecture xorLogic of xnor_gate
+# End time: 23:06:04 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:04 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Xor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity xor_gate
+# -- Compiling architecture xorLogic of xor_gate
+# End time: 23:06:05 on Mar 14,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:05 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity or_gate
+# -- Compiling architecture orLogic of or_gate
+# End time: 23:06:05 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:05 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity not_gate
+# -- Compiling architecture notLogic of not_gate
+# End time: 23:06:05 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:05 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity and_gate
+# -- Compiling architecture andLogic of and_gate
+# End time: 23:06:05 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 23:06:05 on Mar 14,2022
+# vcom -reportprogress 300 -work work C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity top
+# -- Compiling architecture arqtop of top
+# End time: 23:06:05 on Mar 14,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -L work -L pmi_work -L ovi_machxo2 top 
+# Start time: 23:06:05 on Mar 14,2022
+# //  ModelSim - Lattice FPGA Edition 2020.3 Oct 14 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim - Lattice FPGA Edition and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.top(arqtop)
+# Loading work.and_gate(andlogic)
+# Loading work.not_gate(notlogic)
+# Loading work.or_gate(orlogic)
+# Loading work.xor_gate(xorlogic)
+# Loading work.xnor_gate(xorlogic)
+# Loading work.sumador(sumador1_arq)
+# Loading work.sumador_unbit(sumador1_arq)
+# Loading work.restador(arq_restador)
+# Loading work.restador_unbit(restador1_arq)
+# Loading work.diferencia(arq_comp)
+# Loading work.comparador(arq_comp)
+# Loading work.shifter(arq_shif)
+# Loading work.m_ram(arq_mem)
+# Loading work.lcd_main(behaviour)
+# Loading ieee.std_logic_signed(body)
+# Loading ieee.numeric_std(body)
+# Loading work.lcd_decrypter(ctrl_lcd)
+# .main_pane.wave.interior.cs.body.pw.wf
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Emilio  Hostname: DESKTOP-VAS2LNH  ProcessID: 16176
+#           Attempting to use alternate WLF file "./wlft7nsv03".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft7nsv03
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top/op8
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top/op8
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top/op7
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top/op7
+# End time: 23:07:34 on Mar 14,2022, Elapsed time: 0:01:29
+# Errors: 0, Warnings: 25

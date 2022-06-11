@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+
+    <head>
+        <title>Ejercicio2</title>
+        <link rel="icon" href="Recursos/icono.ico" type="image/x-icon">
+    </head>
+</head>
+<style>
+    .global {
+        padding: 20px;
+        border: 8px solid purple;
+        width: 400px;
+        height: 820px;
+    }
+
+    #header {
+        color: purple;
+        font-size:xx-large;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+    #text {
+        padding-bottom:10px;
+        padding-top: 10px; 
+        font-size:medium;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: center;
+    }
+    input{
+        border: 1px solid purple;
+        height: 40px;
+        width: 380px; 
+        border-radius: 10px;
+    }
+    #boton {
+        background: purple;
+        border: 1px solid purple;
+        color: white;
+        text-align: center;
+        vertical-align: center;
+        width: 390px;
+        height: 30px;
+        border-radius: 10px;
+    }
+</style>
+
+<form action="" method="post">
+<div class="global">
+    <div id="header">Formulario de contacto</div>
+    <div  id="text">Escribenos y en breve nos pondremos en contacto contigo</div>
+    <div id="text"><label for="nombre">Nombre<br></label><input type="text" name="nombre"  placeholder="Escribe tu nombre" required /></div>
+    <div id="text"><label for="email">Email<br></label><input  type="email" name="email"  placeholder="Escribe tu email" required /></div>
+    <div id="text"><label for="telefono">Telefono<br></label><input  type="tel" name="telefono"  placeholder="Escribe tu telefono" required /></div>
+    <div id="text"><label for="web">Sitio web<br></label><input  type="text" name="web" placeholder="Escribe la url de tu web" required /></div>
+    <div id="text"><label for="asunto">Asunto<br></label><input type="text" name="asunto" placeholder="Escribe la url de tu web" required /></div>
+    <div id="text"><label for="mensaje">Mensaje<br></label><textarea rows = "5" cols = "60" name="mensaje" style="width:380px;height:200px; border:1px solid purple;border-radius: 10px;" placeholder="Deja tus comentarios aqui..."></textarea>    </div>
+    <div ><input id="boton" type = "submit" value = "Submit" /></div>
+</div>
+</form>
+</html>

@@ -1,0 +1,87 @@
+#Start recording tcl command: 3/9/2022 13:08:02
+#Project Location: C:/Users/link0/Desktop/Escuela/Arqui/Practica1; Project name: Practica1
+prj_project open "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Practica1.ldf"
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd"
+prj_src enable "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/XOR.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd"
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+prj_src exclude "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Or.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/XOR.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Restador_unbit.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/ShifterD_I.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Comparador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Mayor_o_Menor.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Ram.vhd"
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+prj_src exclude "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd"
+prj_src exclude "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd"
+prj_src enable "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd"
+rvl_project new
+rvl_project close -force
+prj_src exclude "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd"
+prj_src enable "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/And.vhd"
+prj_src enable "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Top.vhd"
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+prj_src enable "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd"
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project close -force
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project close -force
+rvl_project new
+rvl_project new
+rvl_project close -force
+rvl_project new
+rvl_project close -force
+rvl_project new
+rvl_project new
+rvl_project close -force
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project close -force
+prj_src exclude "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Sumador_unbit.vhd"
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project new
+rvl_project close -force
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+rvl_project new
+rvl_project close -force
+prj_src enable "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/Codes/Not.vhd"
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+rvl_project new
+rvl_project close -force
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+rvl_project new
+rvl_project new
+rvl_project close -force
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica1/a/a.spf"
+#Stop recording: 3/9/2022 16:24:18

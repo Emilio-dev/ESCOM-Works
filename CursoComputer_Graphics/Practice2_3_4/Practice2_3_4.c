@@ -74,7 +74,7 @@ void Convert_to_VLF(vertex *vertex_array, faces *faces_array, int nv, int nf)
   }
   fclose(output);
   free(output);
-}
+}imprimirTDA(matrices_data_copy);
 
 vertex *Read_OBJ_vertex(int nv)
 {

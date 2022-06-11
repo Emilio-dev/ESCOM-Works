@@ -1,0 +1,39 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>D:\Practica5\Practica5\Practica5\Release</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\Practica5\Practica5\Practica5\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\Practica5\Practica5\Practica5\Release\Practica5.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica5.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica5.map</FILE>
+  <FILE>Practica5.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <digit><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>17</LINE></digit>
+  <reset><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>45</LINE></reset>
+  <INT0_vect><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>140</LINE></INT0_vect>
+  <timer1_ctc><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>159</LINE></timer1_ctc>
+  <timer0_ctc><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>175</LINE></timer0_ctc>
+  <main><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>136</LINE></main>
+  <dece><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>146</LINE></dece>
+  <cen><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>151</LINE></cen>
+  <overflow><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>156</LINE></overflow>
+  <reinicio><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>166</LINE></reinicio>
+  <primero><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>185</LINE></primero>
+  <segundo><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>198</LINE></segundo>
+  <tercero><FILE>D:\Practica5\Practica5\Practica5\main.asm</FILE><LINE>211</LINE></tercero>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<head>
+
+    <head>
+        <title>Ejercicio1</title>
+        <link rel="icon" href="Recursos/icono.ico" type="image/x-icon">
+    </head>
+</head>
+<style>
+    .global {
+        background: #DAE3F2;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border: 5px double #70ABD5;
+    }
+
+    #subheader {
+        width: 600px;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: center;
+    }
+
+    #header {
+        background: white;
+        color: red;
+        width: 600px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    .data {
+        border-collapse: collapse;
+        border: 5px double #70ABD5;
+    }
+
+    .questions {
+        background: #DAE3F2;
+        border: 1px solid #70ABD5;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: center;
+        padding: 7px 5px;
+    }
+
+    .answers {
+        background: white;
+        border: 1px solid #70ABD5;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: center;
+        padding: 7px 5px;
+    }
+
+    input{
+        border-style: none;
+    }
+</style>
+
+
+<div class="global" id="header">
+    FORMULARIO DE INSCRIPCION
+</div>
+<div class="global" id="subheader">
+    DATOS PERSONALES
+</div>
+<form action="/action_page.php" method="post">
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="questions" colspan="2">Nombre</td>
+                <td class="answers" colspan="4"><input name="nombre" type="text"
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2">Apellido</td>
+                <td class="answers" colspan="4"><input name="apellido" type="text"
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2">Direccion</td>
+                <td class="answers" colspan="4"><input name="direccion" type="text"
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;" ></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2">Telefono</td>
+                <td class="answers" colspan="4"><input name="telefono" type="tel"
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2">Correo electronico</td>
+                <td class="answers" colspan="4"><input name="correo" type="email"
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2">Documento</td>
+                <td class="answers" colspan="4"><input name="documento" type="file"></td>
+            </tr>
+            <tr>
+                <td class="questions" colspan="2">Fecha de nacimiento</td>
+                <td class="answers" colspan="4"><input name="fechaN" type="date" placeholder="30/03/2009"
+                        ></td>
+            </tr>
+        </tbody>
+    </table>
+<div class="global" id="subheader">
+    CAPACITACION
+</div>
+
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="questions">Curso</td>
+                <td class="answers">
+                    <select placeholder="cursos" name="cursos">
+                        <option placeholder="none">Elija un curso</option>
+                        <option placeholder="mat">Matematicas</option>
+                        <option placeholder="esp">Español</option>
+                        <option placeholder="eng">Ingles</option>
+                        <option placeholder="prog">Programacion</option>
+                    </select>
+                </td>
+
+                <td class="questions" colspan="4">Dias</td>
+            </tr>
+            <tr>
+                <td class="questions">Horario</td>
+                <td class="answers">
+                    <select placeholder="horarios" name="horarios">
+                        <option placeholder="none">Elija un horario</option>
+                        <option placeholder="M">Matutino</option>
+                        <option placeholder="V">Vespertino</option>
+                        <option placeholder="Mixto">Mixto</option>
+                    </select>
+                </td>
+                <td class="answers"><label for="lunes">Lunes</label><input type="checkbox" name="lunes" > </td>
+                <td class="answers"><label for="martes">Martes</label><input type="checkbox" name="martes" > </td>
+                <td class="answers"><label for="miercoles">Miercoles</label><input type="checkbox" name="miercoles" ></td>
+                <td class="answers"><label for="jueves">Jueves</label><input type="checkbox" name="jueves"> </td>
+            </tr>
+        </tbody>
+    </table>
+<div class="global" id="subheader">
+    PLAN DE PAGO
+</div>
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="answers"><input type="radio" placeholder="pago" id="moneda"><label for="radio"></label></td>
+                <td class="questions">Contado</td>
+                <td class="questions" colspan="4">Moneda</td>
+            </tr>
+            <tr>
+                <td class="answers"><input type="radio" placeholder="pago" id="tarjeta"> <label for="radio"></label></td>
+                <td class="questions">Credito</td>
+                <td class="questions" colspan="4">Tarjeta</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="global" id="subheader">
+    DATOS DE LA INSTITUCION
+</div>
+    <table class="data" width="630px">
+        <tbody>
+            <tr>
+                <td class="questions">N de contrato</td>
+                <td class="answers" colspan="5"><input name="#contrato" type="text"
+                        placeholder="Haga clic aqui para escribir texto." style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions">Persona que atendio</td>
+                <td class="answers" colspan="5"><input name="Patendio" type="text"
+                        placeholder="Haga clic aqui para escribir texto."style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="questions">Fecha de inscripcion</td>
+                <td class="answers" colspan="5"><input name="fechaI" type="date" style="width: 300px;"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+</html>

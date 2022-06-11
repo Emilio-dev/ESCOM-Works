@@ -1,0 +1,1 @@
+Si se desea montar la practica se debera primero ejecutar Create database y luego Create table php contenidos en la carpeta llamada Primero para crear el entorno del sistema para posteriormente poder usar el sistema contenido en la carpeta Practica11S

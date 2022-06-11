@@ -1,0 +1,15 @@
+# Current time Thu May 05 22:06:30 2022
+# ModelSim - Lattice FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.3"
+# Version = "2020.10"
+# Date = "Oct 14 2020"
+# Platform = win32loem
+
+Exception c0000005 has occurred at address 71119e6f. Traceback:
+# 0    0x71119e6f: 'Tcl_GetString + 0xf'
+# 1    0x71101f5a: 'TclListObjSetElement + 0x31a'
+# 2    0x71073a49: 'TclNRRunCallbacks + 0x49'
+StackWalk failed 299
+# End of Stack Trace
+

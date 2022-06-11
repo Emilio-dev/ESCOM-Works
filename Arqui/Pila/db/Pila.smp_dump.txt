@@ -1,0 +1,30 @@
+
+State Machine - |Pila|current_state
+Name current_state.L2 current_state.L1 current_state.ASK3 current_state.ASK2 current_state.MESG2 current_state.MESG1 current_state.ASK1 current_state.ENTRY current_state.D_ON current_state.LCD_CLR current_state.D_OFF current_state.LCD_INI 
+current_state.LCD_INI 0 0 0 0 0 0 0 0 0 0 0 0 
+current_state.D_OFF 0 0 0 0 0 0 0 0 0 0 1 1 
+current_state.LCD_CLR 0 0 0 0 0 0 0 0 0 1 0 1 
+current_state.D_ON 0 0 0 0 0 0 0 0 1 0 0 1 
+current_state.ENTRY 0 0 0 0 0 0 0 1 0 0 0 1 
+current_state.ASK1 0 0 0 0 0 0 1 0 0 0 0 1 
+current_state.MESG1 0 0 0 0 0 1 0 0 0 0 0 1 
+current_state.MESG2 0 0 0 0 1 0 0 0 0 0 0 1 
+current_state.ASK2 0 0 0 1 0 0 0 0 0 0 0 1 
+current_state.ASK3 0 0 1 0 0 0 0 0 0 0 0 1 
+current_state.L1 0 1 0 0 0 0 0 0 0 0 0 1 
+current_state.L2 1 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |Pila|next_state
+Name next_state.L2 next_state.L1 next_state.ASK3 next_state.ASK2 next_state.MESG2 next_state.MESG1 next_state.ASK1 next_state.ENTRY next_state.D_ON next_state.LCD_CLR next_state.D_OFF next_state.LCD_INI 
+next_state.LCD_INI 0 0 0 0 0 0 0 0 0 0 0 0 
+next_state.D_OFF 0 0 0 0 0 0 0 0 0 0 1 1 
+next_state.LCD_CLR 0 0 0 0 0 0 0 0 0 1 0 1 
+next_state.D_ON 0 0 0 0 0 0 0 0 1 0 0 1 
+next_state.ENTRY 0 0 0 0 0 0 0 1 0 0 0 1 
+next_state.ASK1 0 0 0 0 0 0 1 0 0 0 0 1 
+next_state.MESG1 0 0 0 0 0 1 0 0 0 0 0 1 
+next_state.MESG2 0 0 0 0 1 0 0 0 0 0 0 1 
+next_state.ASK2 0 0 0 1 0 0 0 0 0 0 0 1 
+next_state.ASK3 0 0 1 0 0 0 0 0 0 0 0 1 
+next_state.L1 0 1 0 0 0 0 0 0 0 0 0 1 
+next_state.L2 1 0 0 0 0 0 0 0 0 0 0 1 

@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\Release</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>D:\School Programs\MicroChip Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\Release\Practica3.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica3.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica3.map</FILE>
+  <FILE>Practica3.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <menu><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</FILE><LINE>33</LINE></menu>
+  <bajar><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</FILE><LINE>40</LINE></bajar>
+  <subir><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</FILE><LINE>49</LINE></subir>
+  <delay><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</FILE><LINE>59</LINE></delay>
+  <lazo3><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</FILE><LINE>60</LINE></lazo3>
+  <lazo2><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</FILE><LINE>61</LINE></lazo2>
+  <lazo1><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica3\Practica3\Practica3\main.asm</FILE><LINE>62</LINE></lazo1>
+ </LABELS>
+</ASSEMBLER_INFO>

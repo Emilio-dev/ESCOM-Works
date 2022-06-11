@@ -1,0 +1,48 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\Release</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>D:\School Programs\MicroChip Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\Release\Practica4.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica4.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica4.map</FILE>
+  <FILE>Practica4.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <digit><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>21</LINE></digit>
+  <i><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>24</LINE></i>
+  <j><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>25</LINE></j>
+  <k><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>26</LINE></k>
+  <menu><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>63</LINE></menu>
+  <subida><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>68</LINE></subida>
+  <bajada><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>121</LINE></bajada>
+  <eval1><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>70</LINE></eval1>
+  <done1><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>119</LINE></done1>
+  <eval2><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>74</LINE></eval2>
+  <done2><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>117</LINE></done2>
+  <eval3><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>78</LINE></eval3>
+  <done3><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>114</LINE></done3>
+  <delay_2ms><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>175</LINE></delay_2ms>
+  <eval1b><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>123</LINE></eval1b>
+  <done1b><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>172</LINE></done1b>
+  <eval2b><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>127</LINE></eval2b>
+  <done2b><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>170</LINE></done2b>
+  <eval3b><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>131</LINE></eval3b>
+  <done3b><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>167</LINE></done3b>
+  <laz2><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>176</LINE></laz2>
+  <laz1><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica4\Practica4\Practica4\main.asm</FILE><LINE>177</LINE></laz1>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri May  6 00:14:09 2022
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : Pila
+Top-level Entity Name : Pila
+Family : Cyclone IV E
+Total logic elements : 430
+    Total combinational functions : 418
+    Dedicated logic registers : 94
+Total registers : 94
+Total pins : 61
+Total virtual pins : 0
+Total memory bits : 808
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

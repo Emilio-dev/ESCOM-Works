@@ -1,0 +1,7 @@
+#Start recording tcl command: 5/5/2022 14:07:26
+#Project Location: C:/Users/link0/Desktop/Escuela/Arqui/Practica3; Project name: Practica3
+prj_project new -name "Practica3" -impl "impl1" -dev LCMXO2-1200HC-5TG144C -synthesis "lse"
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica3/codes/Contador.vhd"
+prj_project save
+prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica3/a/a.spf"
+#Stop recording: 5/5/2022 14:41:24

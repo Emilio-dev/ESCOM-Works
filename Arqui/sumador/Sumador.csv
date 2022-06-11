@@ -1,0 +1,87 @@
+# Copyright (C) 2021  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+
+# Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+# File: C:\Users\link0\Desktop\Escuela\Arqui\Quartus\sumador\Sumador.csv
+# Generated on: Fri May  6 00:46:43 2022
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
+
+To,Direction,Location,I/O Bank,VREF Group,Fitter Location,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Strict Preservation
+a[7],Input,PIN_AB26,5,B5_N1,PIN_K3,,,,,,
+a[6],Input,PIN_AD26,5,B5_N2,PIN_H5,,,,,,
+a[5],Input,PIN_AC26,5,B5_N2,PIN_K7,,,,,,
+a[4],Input,PIN_AB27,5,B5_N1,PIN_L5,,,,,,
+a[3],Input,PIN_AD27,5,B5_N2,PIN_F1,,,,,,
+a[2],Input,PIN_AC27,5,B5_N2,PIN_K1,,,,,,
+a[1],Input,PIN_AC28,5,B5_N2,PIN_J27,,,,,,
+a[0],Input,PIN_AB28,5,B5_N1,PIN_J28,,,,,,
+b[7],Input,PIN_AA22,5,B5_N2,PIN_N8,,,,,,
+b[6],Input,PIN_AA23,5,B5_N2,PIN_P2,,,,,,
+b[5],Input,PIN_AA24,5,B5_N2,PIN_K8,,,,,,
+b[4],Input,PIN_AB23,5,B5_N2,PIN_P1,,,,,,
+b[3],Input,PIN_AB24,5,B5_N2,PIN_L8,,,,,,
+b[2],Input,PIN_AC24,5,B5_N2,PIN_R1,,,,,,
+b[1],Input,PIN_AB25,5,B5_N1,PIN_T7,,,,,,
+b[0],Input,PIN_AC25,5,B5_N2,PIN_R4,,,,,,
+clk,Input,PIN_Y2,2,B2_N0,PIN_J1,,,,,,
+clr,Input,PIN_M21,6,B6_N1,PIN_Y1,,,,,,
+confirm,Input,PIN_N21,6,B6_N2,PIN_Y2,,,,,,
+D1[6],Output,PIN_H22,6,B6_N0,PIN_N4,,,,,,
+D1[5],Output,PIN_J22,6,B6_N0,PIN_M7,,,,,,
+D1[4],Output,PIN_L25,6,B6_N1,PIN_J5,,,,,,
+D1[3],Output,PIN_L26,6,B6_N1,PIN_L3,,,,,,
+D1[2],Output,PIN_E17,7,B7_N2,PIN_L4,,,,,,
+D1[1],Output,PIN_F22,7,B7_N0,PIN_G1,,,,,,
+D1[0],Output,PIN_G18,7,B7_N2,PIN_M4,,,,,,
+D2[6],Output,PIN_U24,5,B5_N0,PIN_R7,,,,,,
+D2[5],Output,PIN_U23,5,B5_N1,PIN_F2,,,,,,
+D2[4],Output,PIN_W25,5,B5_N1,PIN_M2,,,,,,
+D2[3],Output,PIN_W22,5,B5_N0,PIN_H4,,,,,,
+D2[2],Output,PIN_W21,5,B5_N1,PIN_M1,,,,,,
+D2[1],Output,PIN_Y22,5,B5_N0,PIN_K2,,,,,,
+D2[0],Output,PIN_M24,6,B6_N2,PIN_L2,,,,,,
+D3[6],Output,PIN_W28,5,B5_N1,PIN_C9,,,,,,
+D3[5],Output,PIN_W27,5,B5_N1,PIN_R28,,,,,,
+D3[4],Output,PIN_Y26,5,B5_N1,PIN_D4,,,,,,
+D3[3],Output,PIN_W26,5,B5_N1,PIN_G17,,,,,,
+D3[2],Output,PIN_Y25,5,B5_N1,PIN_A19,,,,,,
+D3[1],Output,PIN_AA26,5,B5_N1,PIN_AG19,,,,,,
+D3[0],Output,PIN_AA25,5,B5_N1,PIN_F3,,,,,,
+D4[6],Output,PIN_Y19,4,B4_N0,PIN_G2,,,,,,
+D4[5],Output,PIN_AF23,4,B4_N0,PIN_M5,,,,,,
+D4[4],Output,PIN_AD24,4,B4_N0,PIN_M3,,,,,,
+D4[3],Output,PIN_AA21,4,B4_N0,PIN_N3,,,,,,
+D4[2],Output,PIN_AB20,4,B4_N0,PIN_L7,,,,,,
+D4[1],Output,PIN_U21,5,B5_N0,PIN_L6,,,,,,
+D4[0],Output,PIN_V21,5,B5_N1,PIN_M8,,,,,,
+D5[6],Output,PIN_AE18,4,B4_N2,PIN_U4,,,,,,
+D5[5],Output,PIN_AF19,4,B4_N1,PIN_R2,,,,,,
+D5[4],Output,PIN_AE19,4,B4_N1,PIN_T3,,,,,,
+D5[3],Output,PIN_AH21,4,B4_N2,PIN_U3,,,,,,
+D5[2],Output,PIN_AG21,4,B4_N2,PIN_E1,,,,,,
+D5[1],Output,PIN_AA19,4,B4_N0,PIN_R3,,,,,,
+D5[0],Output,PIN_AB19,4,B4_N0,PIN_L1,,,,,,
+datos[7],Output,PIN_M5,1,B1_N2,PIN_J7,,,,,,
+datos[6],Output,PIN_N3,1,B1_N2,PIN_H6,,,,,,
+datos[5],Output,PIN_K2,1,B1_N1,PIN_R5,,,,,,
+datos[4],Output,PIN_K1,1,B1_N1,PIN_R6,,,,,,
+datos[3],Output,PIN_K7,1,B1_N1,PIN_T4,,,,,,
+datos[2],Output,PIN_L2,1,B1_N2,PIN_H3,,,,,,
+datos[1],Output,PIN_L1,1,B1_N2,PIN_K4,,,,,,
+datos[0],Output,PIN_L3,1,B1_N1,PIN_J6,,,,,,
+E,Output,PIN_L4,1,B1_N1,PIN_J3,,,,,,
+RS,Output,PIN_M2,1,B1_N2,PIN_J4,,,,,,
+RW,Output,PIN_M1,1,B1_N2,PIN_AF25,,,,,,

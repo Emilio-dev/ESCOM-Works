@@ -1,0 +1,32 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>D:\School Programs\MicroChip Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\Debug\practica7.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>practica7.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>practica7.map</FILE>
+  <FILE>practica7.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\main.asm</FILE><LINE>20</LINE></reset>
+  <fin_conv><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\main.asm</FILE><LINE>37</LINE></fin_conv>
+  <main><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\main.asm</FILE><LINE>32</LINE></main>
+  <delay_15m><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\main.asm</FILE><LINE>41</LINE></delay_15m>
+  <lazo2><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\main.asm</FILE><LINE>42</LINE></lazo2>
+  <lazo1><FILE>C:\Users\link0\Desktop\Escuela\Micros\practica7\practica7\practica7\main.asm</FILE><LINE>43</LINE></lazo1>
+ </LABELS>
+</ASSEMBLER_INFO>

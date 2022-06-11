@@ -1,0 +1,15 @@
+if {![file exists "C:/Users/link0/Desktop/Escuela/Arqui/Practica3/b/b.mpf"]} { 
+	project new "C:/Users/link0/Desktop/Escuela/Arqui/Practica3/b" b
+	project addfile "C:/Users/link0/Desktop/Escuela/Arqui/Practica3/codes/Contador.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "C:/Users/link0/Desktop/Escuela/Arqui/Practica3/codes/Contador.vhd"
+} else {
+	project open "C:/Users/link0/Desktop/Escuela/Arqui/Practica3/b/b"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_machxo2  contador
+view wave
+add wave /*
+run 1000ns

@@ -1,0 +1,6 @@
+$repeat 200
+    PIND |= 0x04
+    #20
+    PIND = 0x0
+    #20
+$endrep

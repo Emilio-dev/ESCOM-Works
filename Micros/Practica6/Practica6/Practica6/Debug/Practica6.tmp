@@ -1,0 +1,64 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>D:\School Programs\MicroChip Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\Debug\Practica6.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica6.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica6.map</FILE>
+  <FILE>Practica6.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>27</LINE></reset>
+  <activar><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>353</LINE></activar>
+  <desactivar><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>358</LINE></desactivar>
+  <delay_50m><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>331</LINE></delay_50m>
+  <main><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>46</LINE></main>
+  <cEntrada><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>320</LINE></cEntrada>
+  <filas><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>84</LINE></filas>
+  <modoSleep><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>51</LINE></modoSleep>
+  <fila0><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>102</LINE></fila0>
+  <fila1><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>106</LINE></fila1>
+  <fila2><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>110</LINE></fila2>
+  <fila3><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>114</LINE></fila3>
+  <columnas><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>118</LINE></columnas>
+  <bEntrada><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>309</LINE></bEntrada>
+  <columna0><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>136</LINE></columna0>
+  <columna1><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>141</LINE></columna1>
+  <columna2><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>146</LINE></columna2>
+  <columna3><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>151</LINE></columna3>
+  <imprime><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>156</LINE></imprime>
+  <tecla1><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>167</LINE></tecla1>
+  <tecla2><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>176</LINE></tecla2>
+  <tecla3><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>185</LINE></tecla3>
+  <teclaA><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>194</LINE></teclaA>
+  <tecla4><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>203</LINE></tecla4>
+  <tecla5><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>212</LINE></tecla5>
+  <tecla6><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>221</LINE></tecla6>
+  <teclaB><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>230</LINE></teclaB>
+  <tecla7><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>239</LINE></tecla7>
+  <tecla8><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>248</LINE></tecla8>
+  <tecla9><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>257</LINE></tecla9>
+  <teclaC><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>266</LINE></teclaC>
+  <teclaD><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>302</LINE></teclaD>
+  <teclaE><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>275</LINE></teclaE>
+  <tecla0><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>284</LINE></tecla0>
+  <teclaF><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>293</LINE></teclaF>
+  <lazo3><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>333</LINE></lazo3>
+  <lazo2><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>335</LINE></lazo2>
+  <lazo1><FILE>C:\Users\link0\Desktop\Escuela\Micros\Practica6\Practica6\Practica6\main.asm</FILE><LINE>337</LINE></lazo1>
+ </LABELS>
+</ASSEMBLER_INFO>

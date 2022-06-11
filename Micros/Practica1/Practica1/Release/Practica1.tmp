@@ -1,0 +1,44 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\Release</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>D:\School Programs\MicroChip Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\Release\Practica1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica1.map</FILE>
+  <FILE>Practica1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>3</LINE></start>
+  <menu><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>17</LINE></menu>
+  <kit><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>29</LINE></kit>
+  <kit_speed><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>45</LINE></kit_speed>
+  <kit_out><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>63</LINE></kit_out>
+  <kit_center><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>81</LINE></kit_center>
+  <izquierda><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>30</LINE></izquierda>
+  <delay_medio><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>101</LINE></delay_medio>
+  <derecha><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>35</LINE></derecha>
+  <izquierdav><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>46</LINE></izquierdav>
+  <delay_alto><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>119</LINE></delay_alto>
+  <derechav><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>51</LINE></derechav>
+  <lazo3><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>102</LINE></lazo3>
+  <lazo2><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>103</LINE></lazo2>
+  <lazo1><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>104</LINE></lazo1>
+  <laz3><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>120</LINE></laz3>
+  <laz2><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>121</LINE></laz2>
+  <laz1><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladors\Practica1\Practica1\Practica1\main.asm</FILE><LINE>122</LINE></laz1>
+ </LABELS>
+</ASSEMBLER_INFO>
