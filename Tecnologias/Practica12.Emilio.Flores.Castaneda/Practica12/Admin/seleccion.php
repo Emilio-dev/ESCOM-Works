@@ -50,5 +50,6 @@ $op='3';
                } 
           ?> 
 	</table> 
+	<a href="index.html">Regresar al inicio</a>
 	</body> 
 	</html>

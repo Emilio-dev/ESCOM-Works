@@ -7,13 +7,13 @@ $result = mysqli_query($conn, "SELECT * FROM Contacto WHERE id='$ID'");
 $rows=mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>}
-<head>
-
+<html> 
     <head>
-        <title>Ejercicio2</title>
+        <title>Listado de Alumnos</title>
         <link rel="icon" href="Recursos/icono.ico" type="image/x-icon">
         <link rel="stylesheet" href="Recursos/mystyle.css">
     </head>
+<body> 
 </head>
 <form action="submit.php?id=<?php echo $rows['id'] ?> & op=<?php echo $op ?>" method="post">
 <div class="global">
@@ -29,4 +29,5 @@ $rows=mysqli_fetch_assoc($result);
 </div>
 </form>
 <a href="index.html">Regresar al inicio</a>
+</body>
 </html>
