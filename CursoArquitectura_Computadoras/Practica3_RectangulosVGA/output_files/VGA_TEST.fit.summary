@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Jun 13 21:03:07 2022
+Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : VGA_TEST
+Top-level Entity Name : VGA_TEST
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 350 / 114,480 ( < 1 % )
+    Total combinational functions : 350 / 114,480 ( < 1 % )
+    Dedicated logic registers : 93 / 114,480 ( < 1 % )
+Total registers : 93
+Total pins : 25 / 529 ( 5 % )
+Total virtual pins : 0
+Total memory bits : 0 / 3,981,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )

@@ -1,0 +1,23 @@
+IP Ports Diff Report for PLL
+Thu Jun 16 00:24:56 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. IP Information
+
+
+
++--------------------------------------------+
+; IP Information                             ;
++----------------------+---------------------+
+; IP Variation Name    ; PLL                 ;
+; Prior Version        ; ACDS_v12.1          ;
+; New Version          ; ACDS_v21.1          ;
+; New File             ; PLL/synthesis/PLL.v ;
+; Has Port Differences ; No                  ;
++----------------------+---------------------+
+
+

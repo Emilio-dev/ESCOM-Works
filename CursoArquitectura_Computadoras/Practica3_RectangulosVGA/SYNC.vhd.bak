@@ -1,0 +1,11 @@
+----	Programa de control de sincronia		----
+----	Modificado por:	U581
+----	Diseñado Originalmente por:	Anton
+----	Fecha:	18 de Enero de 2021
+
+
+	----  Declaracion de Bibliotecas   ----
+	
+		Library ieee;
+		use ieee.std_logic_1164.all;
+		use ieee.numeric_std.all;

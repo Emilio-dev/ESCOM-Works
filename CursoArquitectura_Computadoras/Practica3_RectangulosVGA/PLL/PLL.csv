@@ -1,0 +1,18 @@
+# system info PLL on 2022.06.16.00:24:53
+system_info:
+name,value
+DEVICE,EP4CE115F29C7
+DEVICE_FAMILY,Cyclone IV E
+GENERATION_ID,1655357084
+#
+#
+# Files generated for PLL on 2022.06.16.00:24:53
+files:
+filepath,kind,attributes,module,is_top
+simulation/PLL.v,VERILOG,,PLL,true
+simulation/submodules/PLL_altpll_0.vo,VERILOG,,PLL_altpll_0,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+PLL.altpll_0,PLL_altpll_0

@@ -26,11 +26,10 @@ $op='3';
 		</tr> 
             <th class="cells">ID</th>
             <th class="cells">Nombre</th>
-            <th class="cells">Telefono</th>
             <th class="cells">Correo</th>
+            <th class="cells">Telefono</th>
             <th class="cells">Sitio Web</th>
             <th class="cells">Asunto</th>
-            <th class="cells">Horario</th>
             <th class="cells">Mensaje</th>                   
 		</tr> 
 

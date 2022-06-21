@@ -1,0 +1,69 @@
+Info: Starting: Create simulation model
+Info: qsys-generate C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL.qsys --simulation=VERILOG --allow-mixed-language-simulation --output-directory=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\simulation --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading Practica4_RectangulosVGA/PLL.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 21.1]
+Progress: Parameterizing module altpll_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: PLL.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: PLL: Generating PLL "PLL" for SIM_VERILOG
+Info: altpll_0: Generating Verilog simulation model
+Warning: Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: altpll_0: Generated simulation model PLL_altpll_0.vo
+Info: altpll_0: "PLL" instantiated altpll "altpll_0"
+Info: PLL: Done "PLL" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\PLL.spd --output-directory=C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\PLL.spd --output-directory=C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for VCS simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	1 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL.qsys --block-symbol-file --output-directory=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading Practica4_RectangulosVGA/PLL.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 21.1]
+Progress: Parameterizing module altpll_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: PLL.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL.qsys --synthesis=VERILOG --output-directory=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading Practica4_RectangulosVGA/PLL.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 21.1]
+Progress: Parameterizing module altpll_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: PLL.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: PLL: Generating PLL "PLL" for QUARTUS_SYNTH
+Info: altpll_0: "PLL" instantiated altpll "altpll_0"
+Info: PLL: Done "PLL" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

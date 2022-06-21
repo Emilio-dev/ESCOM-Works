@@ -1,0 +1,142 @@
+IP Upgrade report for VGA_TEST
+Thu Jun 16 00:24:56 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------+
+; IP Upgrade Summary                                                         ;
++------------------------------+---------------------------------------------+
+; IP Components Upgrade Status ; Passed - Thu Jun 16 00:24:56 2022           ;
+; Quartus Prime Version        ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                ; VGA_TEST                                    ;
+; Top-level Entity Name        ; VGA_TEST                                    ;
+; Family                       ; Cyclone IV E                                ;
++------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                                     ;
++-------------+----------------+---------+-----------------------+----------------------+-----------------------+---------+
+; Entity Name ; Component Name ; Version ; Original Source File  ; Generation File Path ; New Source File       ; Message ;
++-------------+----------------+---------+-----------------------+----------------------+-----------------------+---------+
+; PLL         ; qsys           ; 12.1    ; PLL/synthesis/PLL.qip ; PLL.qsys             ; PLL/synthesis/PLL.qip ;         ;
++-------------+----------------+---------+-----------------------+----------------------+-----------------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "PLL.qsys" to "PLL.BAK.qsys"
+Info (11902): Backing up file "PLL/synthesis/PLL.v" to "PLL.BAK.v"
+Info (11837): Started upgrading IP component qsys with file "PLL.qsys"
+Info: 2022.06.16.00:24:41 Info: Starting to upgrade the IP cores in the Platform Designer system
+Info: 2022.06.16.00:24:41 Info: Finished upgrading the ip cores
+Info: 2022.06.16.00:24:43 Info: Saving generation log to C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL
+Info: 2022.06.16.00:24:43 Info: Starting: Create simulation model
+Info: 2022.06.16.00:24:43 Info: qsys-generate C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL.qsys --simulation=VERILOG --allow-mixed-language-simulation --output-directory=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\simulation --family="Cyclone IV E" --part=EP4CE115F29C7
+Info: 2022.06.16.00:24:43 Info: Loading Practica4_RectangulosVGA
+Info: 2022.06.16.00:24:44 Info: Reading input file
+Info: 2022.06.16.00:24:44 Info: Adding altpll_0 [altpll 21.1]
+Info: 2022.06.16.00:24:44 Info: Parameterizing module altpll_0
+Info: 2022.06.16.00:24:44 Info: Building connections
+Info: 2022.06.16.00:24:44 Info: Parameterizing connections
+Info: 2022.06.16.00:24:44 Info: Validating
+Info: 2022.06.16.00:24:44 Info: Done reading input file
+Warning: 2022.06.16.00:24:44 Warning: PLL.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: 2022.06.16.00:24:44 Info: PLL: Generating PLL "PLL" for SIM_VERILOG
+Info: 2022.06.16.00:24:47 Info: altpll_0: Generating Verilog simulation model
+Warning: 2022.06.16.00:24:53 Warning: Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: 2022.06.16.00:24:53 Info: altpll_0: Generated simulation model PLL_altpll_0.vo
+Info: 2022.06.16.00:24:53 Info: altpll_0: "PLL" instantiated altpll "altpll_0"
+Info: 2022.06.16.00:24:53 Info: PLL: Done "PLL" with 2 modules, 2 files
+Info: 2022.06.16.00:24:53 Info: qsys-generate succeeded.
+Info: 2022.06.16.00:24:53 Info: Finished: Create simulation model
+Info: 2022.06.16.00:24:53 Info: Starting: Create Modelsim Project.
+Info: 2022.06.16.00:24:53 Info: sim-script-gen --spd=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\PLL.spd --output-directory=C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:53 Info: Doing: ip-make-simscript --spd=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\PLL.spd --output-directory=C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:54 Info: Generating the following file(s) for MODELSIM simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:54 Info:     mentor
+Info: 2022.06.16.00:24:54 Info: Generating the following file(s) for VCS simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:54 Info:     synopsys/vcs
+Info: 2022.06.16.00:24:54 Info: Generating the following file(s) for VCSMX simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:54 Info:     synopsys/vcsmx
+Info: 2022.06.16.00:24:54 Info:     synopsys/vcsmx
+Info: 2022.06.16.00:24:54 Info: Generating the following file(s) for NCSIM simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:54 Info:     cadence
+Info: 2022.06.16.00:24:54 Info:     cadence
+Info: 2022.06.16.00:24:54 Info:     cadence
+Info: 2022.06.16.00:24:54 Info:     1 .cds.lib files in cadence/cds_libs
+Info: 2022.06.16.00:24:54 Info: Generating the following file(s) for RIVIERA simulator in C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:54 Info:     aldec
+Info: 2022.06.16.00:24:54 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/link0/Desktop/ESCOM-Works/CursoArquitectura_Computadoras/Practica4_RectangulosVGA/Practica4_RectangulosVGA/PLL/simulation
+Info: 2022.06.16.00:24:54 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: 2022.06.16.00:24:54 Info: Finished: Create Modelsim Project.
+Info: 2022.06.16.00:24:54 Info: Starting: Create block symbol file (.bsf)
+Info: 2022.06.16.00:24:54 Info: qsys-generate C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL.qsys --block-symbol-file --output-directory=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL --family="Cyclone IV E" --part=EP4CE115F29C7
+Info: 2022.06.16.00:24:54 Info: Loading Practica4_RectangulosVGA
+Info: 2022.06.16.00:24:54 Info: Reading input file
+Info: 2022.06.16.00:24:54 Info: Adding altpll_0 [altpll 21.1]
+Info: 2022.06.16.00:24:54 Info: Parameterizing module altpll_0
+Info: 2022.06.16.00:24:54 Info: Building connections
+Info: 2022.06.16.00:24:54 Info: Parameterizing connections
+Info: 2022.06.16.00:24:54 Info: Validating
+Info: 2022.06.16.00:24:54 Info: Done reading input file
+Warning: 2022.06.16.00:24:54 Warning: PLL.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: 2022.06.16.00:24:54 Info: qsys-generate succeeded.
+Info: 2022.06.16.00:24:54 Info: Finished: Create block symbol file (.bsf)
+Info: 2022.06.16.00:24:54 Info:
+Info: 2022.06.16.00:24:54 Info: Starting: Create HDL design files for synthesis
+Info: 2022.06.16.00:24:54 Info: qsys-generate C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL.qsys --synthesis=VERILOG --output-directory=C:\Users\link0\Desktop\ESCOM-Works\CursoArquitectura_Computadoras\Practica4_RectangulosVGA\Practica4_RectangulosVGA\PLL\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Info: 2022.06.16.00:24:54 Info: Loading Practica4_RectangulosVGA
+Info: 2022.06.16.00:24:55 Info: Reading input file
+Info: 2022.06.16.00:24:55 Info: Adding altpll_0 [altpll 21.1]
+Info: 2022.06.16.00:24:55 Info: Parameterizing module altpll_0
+Info: 2022.06.16.00:24:55 Info: Building connections
+Info: 2022.06.16.00:24:55 Info: Parameterizing connections
+Info: 2022.06.16.00:24:55 Info: Validating
+Info: 2022.06.16.00:24:55 Info: Done reading input file
+Warning: 2022.06.16.00:24:55 Warning: PLL.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: 2022.06.16.00:24:55 Info: PLL: Generating PLL "PLL" for QUARTUS_SYNTH
+Info: 2022.06.16.00:24:56 Info: altpll_0: "PLL" instantiated altpll "altpll_0"
+Info: 2022.06.16.00:24:56 Info: PLL: Done "PLL" with 2 modules, 2 files
+Info: 2022.06.16.00:24:56 Info: qsys-generate succeeded.
+Info: 2022.06.16.00:24:56 Info: Finished: Create HDL design files for synthesis
+Info (11131): Completed upgrading IP component qsys with file "PLL.qsys"
+Info (23030): Evaluation of Tcl script d:/quartus/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Thu Jun 16 00:24:56 2022
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:45
+
+

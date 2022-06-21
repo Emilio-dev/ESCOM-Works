@@ -1,6 +1,0 @@
-#Start recording tcl command: 4/4/2022 20:26:40
-#Project Location: C:/Users/link0/Desktop/Escuela/Arqui/Practica2; Project name: Practica2
-prj_project new -name "Practica2" -impl "impl1" -dev LCMXO2-1200HC-5TG144C -synthesis "synplify"
-prj_project save
-prj_src add "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/Sumador.vhd" "C:/Users/link0/Desktop/Escuela/Arqui/Practica2/Codes/Sumador_unbit.vhd"
-#Stop recording: 4/4/2022 20:28:35

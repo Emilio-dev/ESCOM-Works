@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\Release</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>D:\School Programs\MicroChip Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/School Programs\MicroChip Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\Release\Practica8.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica8.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica8.map</FILE>
+  <FILE>Practica8.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>26</LINE></reset>
+  <recibir><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>105</LINE></recibir>
+  <delay><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>143</LINE></delay>
+  <main><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>101</LINE></main>
+  <saltodelinea><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>176</LINE></saltodelinea>
+  <limpiar><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>161</LINE></limpiar>
+  <lazo3><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>144</LINE></lazo3>
+  <lazo2><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>145</LINE></lazo2>
+  <lazo1><FILE>C:\Users\link0\Desktop\ESCOM-Works\CursoIntroduccion_Microcontroladores\Practica8\Practica8\Practica8\main.asm</FILE><LINE>146</LINE></lazo1>
+ </LABELS>
+</ASSEMBLER_INFO>
