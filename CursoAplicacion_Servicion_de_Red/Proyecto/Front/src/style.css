@@ -1,0 +1,113 @@
+body{
+    padding-top: 100px;
+    height: 100vh;
+    background-image: url("../public/wave.svg");
+    color: aliceblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-color: #202023;
+    transition: .5s;
+}
+.body{
+    background-color: #202023a3;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: content-box;
+    border-radius: 10px;
+    transition: .5s;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button_box{
+    margin-top: 100px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tabla{
+    width: 60%;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    overflow-y: scroll;
+    scrollbar-width: 2px;
+    
+}
+
+.downloadButton{
+    background-color: transparent;
+    border: none    ;
+}
+.switch {
+    width: 50px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.871);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .5s;
+  }
+  .box{
+    display: grid;
+   justify-content: end;
+  }
+  .switch[data-isOn="true"] {
+    
+    justify-content: flex-end;
+    background-color: rgb(0, 0, 0);
+    transition: .5s;
+  }
+.body[data-isOn="true"] {
+    background-color: rgba(255, 255, 255, 0.338);
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    color: #202023;
+}
+body[data-isOn="true"]{
+  background-image: url("../public/wave.svg");
+}
+body[data-isOn="false"]{
+  background-image: url("../public/wave2.svg");
+}
+.tabla2[data-isOn="true"] {
+    color: #000000;
+}
+
+
+  .handle {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 40px;
+  }
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ff75f4 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ff75f4;
+    border-radius: 20px;
+    border: 3px solid transparent;
+  }

@@ -1,0 +1,48 @@
+Nov 22 17:13:07.282 HYPERVISOR: Release 0.2.22-amd64/Linux (tag 2022052400)
+Nov 22 17:13:07.282 HYPERVISOR: Started on IP = localhost, TCP port = 60907.
+Nov 22 17:13:07.291 HYPERVISOR: exec_cmd: hypervisor version 
+Nov 22 17:13:07.291 HYPERVISOR: exec_cmd: hypervisor working_dir /home/javier/GNS3/projects/Tutorial/project-files/dynamips 
+Nov 22 17:13:07.291 GENERAL: working_dir=/home/javier/GNS3/projects/Tutorial/project-files/dynamips
+Nov 22 17:13:07.292 HYPERVISOR: exec_cmd: hypervisor working_dir /home/javier/GNS3/projects/Tutorial/project-files/dynamips/261cab8f-5a9b-4055-87af-bffbc8d732b5 
+Nov 22 17:13:07.292 GENERAL: working_dir=/home/javier/GNS3/projects/Tutorial/project-files/dynamips/261cab8f-5a9b-4055-87af-bffbc8d732b5
+Nov 22 17:13:07.292 HYPERVISOR: exec_cmd: vm create R2 2 c3600 
+Nov 22 17:13:07.293 VM: VM R2 created.
+Nov 22 17:13:07.293 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5007 
+Nov 22 17:13:07.293 HYPERVISOR: exec_cmd: c3600 get_mac_addr R2 
+Nov 22 17:13:07.293 HYPERVISOR: exec_cmd: c3600 set_chassis R2 3660 
+Nov 22 17:13:07.294 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:07.294 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x6076e0b4 
+Nov 22 17:13:07.294 HYPERVISOR: exec_cmd: vm set_ios R2 /home/javier/GNS3/images/IOS/c3660-a3jk9s-mz.124-15.T14.image 
+Nov 22 17:13:07.295 HYPERVISOR: exec_cmd: c3600 set_mac_addr R2 cc02.1653.0000 
+Nov 22 17:13:07.295 HYPERVISOR: exec_cmd: vm set_nvram R2 256 
+Nov 22 17:13:07.295 HYPERVISOR: exec_cmd: vm set_ram R2 192 
+Nov 22 17:13:07.295 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:07.296 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 NM-1FE-TX 
+Nov 22 17:13:07.296 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:07.296 HYPERVISOR: exec_cmd: vm slot_add_binding R2 2 0 NM-1FE-TX 
+Nov 22 17:13:07.296 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:07.296 HYPERVISOR: exec_cmd: vm slot_add_binding R2 3 0 NM-1FE-TX 
+Nov 22 17:13:07.297 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:07.297 HYPERVISOR: exec_cmd: vm slot_add_binding R2 4 0 NM-1FE-TX 
+Nov 22 17:13:08.186 HYPERVISOR: exec_cmd: nio create_udp udp-1019c7d2-7354-4c26-ba37-518bb2ddd666 10016 127.0.0.1 10017 
+Nov 22 17:13:08.402 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-1019c7d2-7354-4c26-ba37-518bb2ddd666 
+Nov 22 17:13:08.404 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:08.498 HYPERVISOR: exec_cmd: nio create_udp udp-ceef7791-df82-48af-9b26-c0280b42efe1 10020 127.0.0.1 10021 
+Nov 22 17:13:08.499 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 1 udp-ceef7791-df82-48af-9b26-c0280b42efe1 
+Nov 22 17:13:08.500 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:08.863 HYPERVISOR: exec_cmd: nio create_udp udp-21cc6514-1db1-4faf-ba66-91926bf675a8 10028 127.0.0.1 10029 
+Nov 22 17:13:08.864 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 1 0 udp-21cc6514-1db1-4faf-ba66-91926bf675a8 
+Nov 22 17:13:08.865 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:23.396 HYPERVISOR: exec_cmd: vm set_ios R2 /home/javier/GNS3/images/IOS/c3660-a3jk9s-mz.124-15.T14.image 
+Nov 22 17:13:24.695 HYPERVISOR: exec_cmd: vm set_ios R2 /home/javier/GNS3/images/IOS/c3660-a3jk9s-mz.124-15.T14.image 
+Nov 22 17:13:26.471 HYPERVISOR: exec_cmd: vm set_ios R2 /home/javier/GNS3/images/IOS/c3660-a3jk9s-mz.124-15.T14.image 
+Nov 22 17:13:32.774 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Nov 22 17:13:32.776 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /home/javier/GNS3/projects/Tutorial/project-files/dynamips/c3660-a3jk9s-mz.124-15.T14.image-192.ghost 
+Nov 22 17:13:32.777 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 17:13:32.779 HYPERVISOR: exec_cmd: vm set_config R2 configs/i2_startup-config.cfg 
+Nov 22 17:13:32.780 HYPERVISOR: exec_cmd: vm start R2 
+Nov 22 17:14:02.992 HYPERVISOR: exec_cmd: vm extract_config R2 
+Nov 22 19:24:59.892 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 22 19:24:59.895 HYPERVISOR: exec_cmd: vm stop R2 
+Nov 22 19:25:00.081 VM: VM R2 shutdown.
+Nov 22 19:25:00.090 HYPERVISOR: exec_cmd: vm extract_config R2 
