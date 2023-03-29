@@ -1,5 +1,8 @@
 import numpy as np
-import pygame
+import matplotlib.pyplot as plt
+from matplotlib import colors
+from matplotlib import patches
+from matplotlib import collections as coll
 
 terrain_colors = {
     0: (0.5, 0.5, 0.5),  # Mountain - gray
@@ -7,8 +10,19 @@ terrain_colors = {
     2: (0, 0, 1),  # Water - blue
     3: (1, 1, 0.5),  # Sand - light yellow
     4: (0, 0.6, 0),  # Forest - green
+    86: (0.5, 0, 0),  # visited - dark red
+    79: (0, 0.5, 0.5),  # decision - teal
+    73: (1, 0, 0),  # initial - red
+    88: (0, 1, 0),  # current - bright green
 }
 
+terrain_labels = {
+    0: 'Mountain',
+    1: 'Land',
+    2: 'Water',
+    3: 'Sand',
+    4: 'Forest'
+}
 
 def load_map(map_file):
     # read the map file and convert it into a 2D array of terrain codes
@@ -18,118 +32,101 @@ def load_map(map_file):
     # convert the 2D array into a numpy array for easier manipulation
     return np.array(map_data)
 
+def display_map(map_array, marked_positions=None):
+    # create a colormap from the terrain colors
+    cmap = colors.ListedColormap([terrain_colors[i] for i in terrain_colors.keys()])
 
-def display_map(matrix, terrain_colors):
-    # Initialize Pygame
-    square_size=30
-    pygame.init()
+    # create a new figure and axis for the map plot
+    fig, ax = plt.subplots(figsize=(10, 10))
 
-    # Calculate the dimensions of the window based on the matrix size and square size
-    window_width = len(matrix[0]) * square_size
-    window_height = len(matrix) * square_size
+    # create a new array for the map with the same shape as the input array, but with dtype=object
+    display_array = np.empty(map_array.shape, dtype=object)
 
-    # Create the Pygame window
-    screen = pygame.display.set_mode((window_width, window_height))
+    # iterate over the input array and create a colored patch for each terrain type
+    for i in range(map_array.shape[0]):
+        for j in range(map_array.shape[1]):
+            terrain_type = map_array[i, j]
+            display_array[i, j] = patches.Rectangle((j, i), 1, 1, linewidth=1, edgecolor='black', facecolor=terrain_colors[terrain_type])
 
-    # Loop through the matrix and draw each square on the window
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            terrain_code = matrix[i][j]
-            color = pygame.Color(terrain_colors[terrain_code])
-            rect = pygame.Rect(j * square_size, i * square_size, square_size, square_size)
-            pygame.draw.rect(screen, color, rect)
+            if marked_positions is not None and (i, j) in marked_positions:
+                # add a mark symbol if there is a marked position
+                mark_symbol = mark_symbols[marked_positions[(i, j)]]
+                mark_color = mark_colors[marked_positions[(i, j)]]
+                ax.plot(j + 0.5, i + 0.5, marker=mark_symbol, markersize=10, markerfacecolor=mark_color, markeredgecolor=mark_color)
 
-    # Update the display and wait for the user to close the window
-    pygame.display.flip()
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                return
+    # create a PatchCollection from the patch objects and add it to the plot axis
+    pc = coll.PatchCollection(display_array.reshape(-1), match_original=True)
+    ax.add_collection(pc)
 
+    # set axis limits and labels
+    ax.set_xlim(0, map_array.shape[1])
+    ax.set_ylim(map_array.shape[0], 0)
+    ax.set_xticks(np.arange(0.5, map_array.shape[1], 1))
+    ax.set_yticks(np.arange(0.5, map_array.shape[0], 1))
+    ax.set_xticklabels(np.arange(1, map_array.shape[1]+1, 1))
+    ax.set_yticklabels(np.arange(1, map_array.shape[0]+1, 1))
+    ax.set_xlabel('Column')
+    ax.set_ylabel('Row')
+    ax.set_title('Map')
+    plt.show()
 
-def get_cell_info(map_file, x, y):
-    # read the map file and convert it into a 2D array of terrain codes
-    with open(map_file, 'r') as f:
-        map_data = [[int(x) for x in line.strip().split(',')] for line in f]
+def changeterrain_type(map_data, row, col, new_type):
 
-    # convert the 2D array into a numpy array for easier manipulation
-    map_array = np.array(map_data)
+    if not isinstance(map_data, np.ndarray):
+        raise TypeError("map_data should be a numpy array")
 
-    # get the terrain code and corresponding terrain type for the given cell
-    terrain_code = map_array[y, x]
-    terrain_type = ''
-    if terrain_code == 0:
-        terrain_type = 'Mountain'
-    elif terrain_code == 1:
-        terrain_type = 'Land'
-    elif terrain_code == 2:
-        terrain_type = 'Water'
-    elif terrain_code == 3:
-        terrain_type = 'Sand'
-    elif terrain_code == 4:
-        terrain_type = 'Forest'
+    if row < 0 or row >= map_data.shape[0] or col < 0 or col >= map_data.shape[1]:
+        raise ValueError("Invalid row or column index")
 
-    # check if the cell is visible
-    visible = False
-    if x >= 0 and x < map_array.shape[1] and y >= 0 and y < map_array.shape[0]:
-        visible = True
+    if new_type not in terrain_colors:
+        raise ValueError("Invalid terrain type")
 
-    # construct and return a dictionary with the cell information
-    cell_info = {
-        'x': x,
-        'y': y,
-        'terrain_type': terrain_type,
-        'visible': visible
+    map_data[row, col] = new_type
+
+    return map_data
+
+def get_terrain_type(map_data, row, col):
+    if not isinstance(map_data, np.ndarray):
+        raise TypeError("map_data should be a numpy array")
+
+    if row < 0 or row >= map_data.shape[0] or col < 0 or col >= map_data.shape[1]:
+        raise ValueError("Invalid row or column index")
+
+    if map_data[row, col] not in terrain_colors:
+        raise ValueError("Invalid terrain type")
+    
+    return map_data[row, col]
+
+def mark_positions(map_array, positions):
+    tag_dict = {
+        'visited': 'V',
+        'decision': 'O',
+        'initial': 'I',
+        'current': 'X'
     }
-    return cell_info
 
-def edit_map(map_data,terrain_colors):
+    # Convert map_array to integer data type
+    map_array = map_array.astype(int)
 
-    def display_map():
-        for y in range(len(map_data)):
-            for x in range(len(map_data[y])):
-                color = terrain_colors[map_data[y][x]]
-                pygame.draw.rect(screen, color, (x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE))
+    # Create a copy of the map array to avoid modifying the original
+    marked_map = np.copy(map_array)
 
-    def get_terrain_type(coord):
-        x, y = coord
-        return map_data[y][x]
+    for pos, tag in positions:
+        # Get the tag character based on the tag name
+        tag_char = tag_dict.get(tag, '')
 
-    def set_terrain_type(coord, terrain_type):
-        x, y = coord
-        map_data[y][x] = terrain_type
+        # If a valid tag character was found, mark the position
+        if tag_char:
+            marked_map[pos[0], pos[1]] = ord(tag_char)
 
-    TILE_SIZE = 30
-    MAP_WIDTH = len(map_data[0]) * TILE_SIZE
-    MAP_HEIGHT = len(map_data) * TILE_SIZE
-    screen = pygame.display.set_mode((MAP_WIDTH, MAP_HEIGHT))
+    return marked_map
 
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-            elif event.type == pygame.MOUSEBUTTONUP:
-                pos = pygame.mouse.get_pos()
-                coord = (pos[0] // TILE_SIZE, pos[1] // TILE_SIZE)
-
-                # Display terrain type information for clicked coordinate
-                terrain_type = get_terrain_type(coord)
-                print(f"Terrain type at {coord}: {terrain_type}")
-
-                # Change terrain type for clicked coordinate
-                if event.button == 1:  # Left click
-                    set_terrain_type(coord, (terrain_type + 1) % len(terrain_colors))
-                elif event.button == 3:  # Right click
-                    set_terrain_type(coord, (terrain_type - 1) % len(terrain_colors))
-
-        screen.fill((255, 255, 255))
-        display_map()
-        pygame.display.update()
-
-pygame.init()
-map_file = 'map.txt'
-data=load_map(map_file)
-display_map(data, terrain_colors)
-pygame.quit()
+map_data = load_map('map.txt')
+display_map(map_data)
+map_data=changeterrain_type(map_data, 0, 0, 1)
+display_map(map_data)
+get_terrain_type(map_data, 0, 0)
+positions = [((1, 1), 'visited'), ((3, 3), 'decision'), ((5, 5), 'initial'), ((7, 7), 'current')]
+map_data = mark_positions(map_data, positions)
+display_map(map_data)
+print(get_terrain_type(map_data, 1, 1))
