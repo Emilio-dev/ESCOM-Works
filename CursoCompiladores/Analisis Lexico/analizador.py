@@ -77,69 +77,71 @@ class Lexer:
             if self.current_char == ';':
                 self.advance()
                 return Token("Pcoma", ';')
-            
-            if self.current_char == 'ademas':
-                self.advance()
-                return Token("Tokenademas","ademas")
-            
-            if self.current_char == 'falso':
-                self.advance()
-                return Token("Tokenfalso","falso")
-            
-            if self.current_char == 'para':
-                self.advance()
-                return Token("Tokenpara","para")
-            
-            if self.current_char == 'fun':
-                self.advance()
-                return Token("Tokenfun","fun")
-            
-            if self.current_char == 'si':
-                self.advance()
-                return Token("Tokensi","si")
-            
-            if self.current_char == 'nulo':
-                self.advance()
-                return Token("Tokennulo","nulo")
-            
+                      
             if self.current_char == 'o':
                 self.advance()
                 return Token("Tokeno","o")
             
-            if self.current_char == 'imprimir':
-                self.advance()
-                return Token("Tokenimprimir","imprimir")
+            if self.current_char == '"':
+                return Token("String", self.get_string())
             
-            if self.current_char == 'retornar':
-                self.advance()
-                return Token("Tokenretornar","retornar")
-            
-            if self.current_char == 'super':
-                self.advance()
-                return Token("Tokensuper","super")
-            
-            if self.current_char == 'este':
-                self.advance()
-                return Token("Tokeneste","este")
-            
-            if self.current_char == 'verdadero':
-                self.advance()
-                return Token("Tokenverdadero","verdadero")
-            
-            if self.current_char == 'var':
-                self.advance()
-                return Token("Tokenvar","var")
-            
-            if self.current_char == 'mientras':
-                self.advance()
-                return Token("Tokenmientras","mientras")
-
             if self.current_char.isdigit() or self.current_char == ".":
                 number_token = self.get_number()
                 return Token(number_token.type,number_token.value)
 
             if self.current_char.isalpha():
-                return Token("TokenPR", self.get_id())
+                identifier = self.get_identifier()
+                if identifier == "ademas":
+                    self.advance()
+                    return Token("Tokenademas","ademas")
+                
+                elif identifier == "falso":
+                    self.advance()
+                    return Token("Tokenfalso","falso")
+                
+                elif identifier == "para":
+                    self.advance()
+                    return Token("Tokenpara","para")
+                
+                elif identifier == "fun":
+                    self.advance()
+                    return Token("Tokenfun","fun")
+                
+                elif identifier == "si":
+                    self.advance()
+                    return Token("Tokensi","si")
+                
+                elif identifier == "nulo":
+                    self.advance()
+                    return Token("Tokennulo","nulo")
+                elif identifier == "imprimir":
+                    self.advance()
+                    return Token("Tokenimprimir","imprimir")
+                elif identifier == "retornar":
+                    self.advance()
+                    return Token("Tokenretornar","retornar")
+                
+                elif identifier == "super":
+                    self.advance()
+                    return Token("Tokensuper","super")
+                
+                elif identifier == "este":
+                    self.advance()
+                    return Token("Tokeneste","este")
+                
+                elif identifier == "verdadero":
+                    self.advance()
+                    return Token("Tokenverdadero","verdadero")
+                
+                elif identifier == "var":
+                    self.advance()
+                    return Token("Tokenvar","var")
+                               
+                elif identifier == "mientras":
+                    self.advance()
+                    return Token("Tokenmientras","mientras")
+                else:
+                    return Token("TokenPR", self.get_id())
 
             self.error()
 
@@ -151,16 +153,23 @@ class Lexer:
         self.advance()  # Consume the newline character
 
     def skip_multi_line_comment(self):
-        self.advance()  # Consume the opening '/'
-        self.advance()  # Consume the asterisk '*'
+        self.advance()  
+        self.advance()  
         while self.current_char is not None:
-            if self.current_char == '*':  # End of the comment
-                self.advance()  # Consume the asterisk '*'
+            if self.current_char == '*':  
+                self.advance()  
                 if self.current_char == '/':
-                    self.advance()  # Consume the closing '/'
+                    self.advance()  
                     return
             self.advance()
-        raise Exception('Unterminated multi-line comment')    
+        raise Exception('Unterminated multi-line comment')   
+     
+    def get_identifier(self):
+        identifier = ''
+        while self.current_char is not None and self.current_char.isalnum():
+            identifier += self.current_char
+            self.advance()
+        return identifier
 
     def get_number(self):
         result = ""
@@ -178,26 +187,40 @@ class Lexer:
             result += self.current_char
             self.advance()
         return result
+    
+    def get_string(self):
+        self.advance()
+        result = ''
+        while self.current_char is not None and self.current_char != '"':
+            result += self.current_char
+            self.advance()
+        if self.current_char is None:
+            self.error()
+        self.advance()
+        return result
 
     def error(self):
         raise Exception("Carácter no válido en la línea {} y columna {}".format(self.line, self.column))
     
+    
 def read_file(filename):
-    try:
-            file = open(filename, 'r')
-            contents = file.read()
-            tokenizar(contents)
-            return 0
-    except FileNotFoundError:
-            print("Por favor, ingrese los argumentos a tokenizar: ")
-            try:
-                while True:
-                    text=input()
-                    tokenizar(text)    
-            except KeyboardInterrupt:
-                # code to execute when the user presses Ctrl+C
-                print("Ctrl+C pressed. Exiting.")
-                return 0
+    if filename == "none" or filename == None:
+        print("Por favor, ingrese los argumentos a tokenizar: ")
+        try:
+            while True:
+                text=input()
+                tokenizar(text)    
+        except KeyboardInterrupt:
+            # code to execute when the user presses Ctrl+C
+            print("Ctrl+C pressed. Exiting.")
+            return 0        
+    else:
+        file = open(filename, 'r')
+        contents = file.read()
+        tokenizar(contents)
+        return 0
+
+
 
 def tokenizar(texto):
     lexer = Lexer(texto)
@@ -212,5 +235,4 @@ def tokenizar(texto):
 parser = argparse.ArgumentParser()
 parser.add_argument('filename', type=str, help='The filename to read')
 args = parser.parse_args()
-print(args.filename)
 read_file(args.filename)

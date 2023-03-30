@@ -7,8 +7,12 @@ que no aparecen en la tokenizacion*/b;
     int n = a / b;
     =
     ====
+    imprimir("hola mundo")
     233.5
     return c;
+    falso
+    mientras //este es un comentario de una linea
+
 }
 //este es un comentario de una linea
 /*este es un comentario multilinea
