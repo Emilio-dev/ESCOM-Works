@@ -12,7 +12,9 @@ que no aparecen en la tokenizacion*/b;
     return c;
     falso
     mientras //este es un comentario de una linea
-
+    (a < b) {
+        a = a + 1;
+    }
 }
 //este es un comentario de una linea
 /*este es un comentario multilinea

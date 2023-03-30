@@ -31,11 +31,11 @@ class Lexer:
 
             if self.current_char == '+':
                 self.advance()
-                return Token("PLUS", '+')
+                return Token("MAS", '+')
 
             if self.current_char == '-':
                 self.advance()
-                return Token("MINUS", '-')
+                return Token("MENOS", '-')
 
             if self.current_char == '*':
                 self.advance()
@@ -80,7 +80,19 @@ class Lexer:
                       
             if self.current_char == 'o':
                 self.advance()
-                return Token("Tokeno","o")
+                return Token("OR","o")
+            
+            if self.current_char == 'y':
+                self.advance()
+                return Token("AND","y")
+            
+            if self.current_char == '>':
+                self.advance()
+                return Token("Mayor que",">")
+            
+            if self.current_char == '<':
+                self.advance()
+                return Token("Menor que","<")
             
             if self.current_char == '"':
                 return Token("String", self.get_string())
@@ -141,7 +153,8 @@ class Lexer:
                     self.advance()
                     return Token("Tokenmientras","mientras")
                 else:
-                    return Token("TokenPR", self.get_id())
+
+                    return Token("TokenPR", identifier)
 
             self.error()
 
@@ -180,14 +193,7 @@ class Lexer:
             return Token("FLOAT", float(result))
         else:
             return Token("INTEGER", int(result))
-
-    def get_id(self):
-        result = ''
-        while self.current_char is not None and self.current_char.isalnum():
-            result += self.current_char
-            self.advance()
-        return result
-    
+ 
     def get_string(self):
         self.advance()
         result = ''
