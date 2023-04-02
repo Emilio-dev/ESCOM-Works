@@ -28,7 +28,7 @@ class Lexer:
             if self.current_char.isspace():
                 self.advance()
                 continue
-
+            
             if self.current_char == '+':
                 self.advance()
                 return Token("MAS", '+')
