@@ -1,0 +1,8 @@
+ubuntu
+Perry2012.12
+
+a instalar
+sudo apt install default-jre
+java -version
+sudo apt install default-jdk
+javac -version
