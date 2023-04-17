@@ -17,8 +17,8 @@ public class nodo0 {
       // Inicialización de la matriz A
       for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-           A[i][j] = 2*i-j;
-           B[i][j] = i-2*j;
+            A[i][j]= 2*i+j;
+            B[i][j] = 3*i-j;
         }
      }
 
@@ -84,10 +84,10 @@ public class nodo0 {
                     C_3 = concatenateMatrices(C7, C8, C9);
                 }
             }
-
+            double[][] BTF = concatenateMatrices(BT1, BT2, BT3);
             double[][] C = concatenateMatricesVertically(C_1, C_2, C_3);
             // Calcular el checksum de la matriz C
-            int checksum = 0;
+            double checksum = 0;
             for (int i = 0; i < C.length; i++) {
                 for (int j = 0; j < C[0].length; j++) {
                     checksum += C[i][j];
@@ -109,8 +109,11 @@ public class nodo0 {
                 printMatrix(A);
                 System.out.println("Matriz B:");
                 printMatrix(B);
+                System.out.println("Matriz BT:");
+                printMatrix(BTF);
                 System.out.println("Matriz C:");
                 printMatrix(C);
+
             }
 
         }
