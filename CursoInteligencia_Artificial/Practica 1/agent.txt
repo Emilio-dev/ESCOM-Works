@@ -1,2 +1,2 @@
-Octopus
-Up,Down,Left,Right,Left,Right
+octopus
+Down,Right,Right,Right,Down,Down
