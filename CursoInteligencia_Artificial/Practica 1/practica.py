@@ -99,10 +99,7 @@ def display_map(map_array):
     # set axis limits and labels
     ax.set_xlim(0, map_array.shape[1])
     ax.set_ylim(map_array.shape[0], 0)
-    ax.set_xticks(np.arange(0.5, map_array.shape[1], 1))
-    ax.set_yticks(np.arange(0.5, map_array.shape[0], 1))
-    ax.set_xticklabels(np.arange(0, map_array.shape[1], 1))
-    ax.set_yticklabels(np.arange(0, map_array.shape[0], 1))
+
     ax.set_xlabel('Column')
     ax.set_ylabel('Row')
     ax.set_title('Map')
@@ -179,22 +176,23 @@ def scan_map(map_data) :
 
     return map_data,initial,objective
 
-def movement(agente, map_data,movimientos,initial, objective):
+def movement_controled(agente, map_data,movimientos,initial, objective):
     auxX,auxY= initial
     posX,posY = initial
     movement_cost = 0
     for movimiento in movimientos:
-        if movimiento == 'left':
+        print(movimiento)
+        if movimiento == "left":
             auxX -= 1
-        elif movimiento == 'right':
+        elif movimiento == "right":
             auxX += 1
-        elif movimiento == 'up':
+        elif movimiento == "up":
             auxY += 1
-        elif movimiento == 'down':
+        elif movimiento == "down":
             auxY -= 1
         else:
             raise ValueError("Invalid movement character")
-        terrain_type, mark_value, visible = get_terrain_type(map_data, auxX, auxY)
+        terrain_type, _, _ = get_terrain_type(map_data, auxX, auxY)
         # Get the movement cost for the current terrain agent_type   
         movement_cost += agents_movement_cost[(agente, terrain_type)]
         # Mark the current position as visited
@@ -234,38 +232,106 @@ def create_graph(agent_type,map_data):
 
 def bfs(graph, start, end):
     # initialize the queue with the starting node
-    queue = deque([(start, [])])
+    queue = deque([(start, [start], 0)])
     # initialize a set to keep track of visited nodes
     visited = set()
-    
+    # initialize lists to store the paths and their respective costs
+    paths = []
+    costs = []
+
     # continue searching while there are still nodes to explore
     while queue:
         # get the next node to explore and its path to the current point
-        node, path = queue.popleft()
-        # if this node is the ending node, we've found the shortest path
+        node, path, cost = queue.popleft()
+        # if this node is the ending node, we've found a path
         if node == end:
-            return path
-        
+            # store the path and its cost
+            paths.append(path)
+            costs.append(cost)
+
         # mark this node as visited
         visited.add(node)
-        
-        # add all unvisited neighbors with non-zero cost to the queue
-        for neighbor, cost in graph[node]:
-            if neighbor not in visited and cost > 0:
-                # append the neighbor to the path and add to the queue
-                queue.append((neighbor, path + [neighbor]))
-    
-    # if we reach this point, there is no path from start to end
-    return None
 
+        # add all unvisited neighbors with non-zero cost to the queue
+        for neighbor, neighbor_cost in graph[node]:
+            if neighbor not in visited and neighbor_cost > 0:
+                # append the neighbor to the path, add to the cost and add to the queue
+                queue.append((neighbor, path + [neighbor], cost + neighbor_cost))
+
+    # if we reach this point, there is no path from start to end
+    return paths, costs
+
+def dfs(graph, start, end, path=[], cost=0, paths=[], costs=[]):
+    # add the current node to the path
+    path = path + [start]
+    
+    # if the current node is the end node, add the path and cost to the lists
+    if start == end:
+        paths.append(path)
+        costs.append(cost)
+    
+    # for each neighbor of the current node, if it hasn't been visited, explore it
+    for neighbor, neighbor_cost in graph[start]:
+        if neighbor not in path and neighbor_cost > 0:
+            dfs(graph, neighbor, end, path, cost + neighbor_cost, paths, costs)
+    
+    # return the lists of paths and costs
+    return paths, costs
+
+def decide(paths,costs):
+    return paths[costs.index(min(costs))],min(costs)
+
+def move_agent(map_data,agent_movements, initial, objective,cost):
+    agent_posx = initial[0]
+    agent_posy = initial[1]
+    agent_pos = (agent_posx,agent_posy)
+    for move in agent_movements:
+        print(move)
+        x, y = move  # unpack the x and y coordinates of the next movement
+        map_data = mark_positions(map_data, [((move), 'current'),((agent_pos), 'visited')])
+        auxx= agent_posx + x  # update the agent's x position
+        auxy= agent_posy + y  # update the agent's y position
+        agent_pos = (auxx,auxy)
+       
+        display_map(map_data)  # display the map
+        time.sleep(0.5)  # wait for 0.5 seconds
+    if objective == agent_pos:
+        print("Objective found!")
+        print("Total movement cost: {}".format(cost))
+    else:
+        print("Objective not found!")
 
 
 map_data=load_map('map.txt')
-map_data,initial,objective=scan_map(map_data)
 display_map(map_data)
-agent_type,agent_movements=load_agent('agent.txt')
-graph=create_graph(agent_type,map_data)
+map_data,initial,objective=scan_map(map_data)
+while True:
+    print("1. Solve by BFS")
+    print("2. Solve by DFS")
+    print("3. Solve Manually")
+    print("4. Exit")
+    choice = input("Enter your choice: ")
+    if(choice == "1" or choice == "2"):
+        agent_type = input("Enter the agent type: ")
+    if choice == "1":
+        graph = create_graph(agent_type,map_data)
+        paths,costs = bfs(graph, initial, objective)
+        path,cost = decide(paths,costs)
+        move_agent(map_data,path,initial,objective,cost)
+    elif choice == "2":
+        graph = create_graph(agent_type,map_data)
+        paths,costs = dfs(graph, initial, objective)
+        path,cost = decide(paths,costs)
+        move_agent(map_data,path,initial,objective,cost)
+    elif choice == "3":
+        agent_type,agent_movements=load_agent('agent.txt')
+        movement_controled(agent_type,map_data,agent_movements,initial,objective)
+    elif choice == "4":
+        print("Exiting the program...")
+        break
+    else:
+        print("Invalid choice. Please try again.")
 
-print(bfs(graph, initial, objective))
+
 
 
