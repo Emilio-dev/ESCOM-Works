@@ -5,6 +5,7 @@ from matplotlib import colors
 from matplotlib import patches
 from matplotlib import collections as coll
 from collections import defaultdict, deque
+import heapq
 
 terrain_colors = {
     0: (0.5, 0.5, 0.5),  # Mountain - gray
@@ -236,8 +237,9 @@ def bfs(graph, start, end):
     # initialize a set to keep track of visited nodes
     visited = set()
     # initialize lists to store the paths and their respective costs
-    paths = []
-    costs = []
+    successful_paths = []
+    unsuccessful_paths = []
+    successful_costs = []
 
     # continue searching while there are still nodes to explore
     while queue:
@@ -246,8 +248,11 @@ def bfs(graph, start, end):
         # if this node is the ending node, we've found a path
         if node == end:
             # store the path and its cost
-            paths.append(path)
-            costs.append(cost)
+            successful_paths.append(path)
+            successful_costs.append(cost)
+        else:
+            # store the unsuccessful path
+            unsuccessful_paths.append(path)
 
         # mark this node as visited
         visited.add(node)
@@ -259,7 +264,7 @@ def bfs(graph, start, end):
                 queue.append((neighbor, path + [neighbor], cost + neighbor_cost))
 
     # if we reach this point, there is no path from start to end
-    return paths, costs
+    return successful_paths, unsuccessful_paths, successful_costs
 
 def dfs(graph, start, end, path=[], cost=0, paths=[], costs=[]):
     # add the current node to the path
@@ -277,6 +282,46 @@ def dfs(graph, start, end, path=[], cost=0, paths=[], costs=[]):
     
     # return the lists of paths and costs
     return paths, costs
+
+def astar(graph, start, end, heuristic):
+    # initialize the priority queue with the starting node
+    queue = [(heuristic(start, end), 0, start, [start])]
+    # initialize a set to keep track of visited nodes
+    visited = set()
+    # initialize lists to store the paths and their respective costs
+    paths = []
+    costs = []
+
+    # continue searching while there are still nodes to explore
+    while queue:
+        # get the next node with the minimum f-score to explore and its path to the current point
+        _, cost, node, path = heapq.heappop(queue)
+        # if this node is the ending node, we've found a path
+        if node == end:
+            # store the path and its cost
+            paths.append(path)
+            costs.append(cost)
+
+        # mark this node as visited
+        visited.add(node)
+
+        # add all unvisited neighbors with non-zero cost to the queue
+        for neighbor, neighbor_cost in graph[node]:
+            if neighbor not in visited and neighbor_cost > 0:
+                # append the neighbor to the path, add to the cost and add to the queue with updated f-score
+                g_score = cost + neighbor_cost
+                h_score = heuristic(neighbor, end)
+                f_score = g_score + h_score
+                heapq.heappush(queue, (f_score, g_score, neighbor, path + [neighbor]))
+
+    # if we reach this point, there is no path from start to end
+    return paths, costs
+
+def manhattan_distance(current, goal):
+
+    x1, y1 = current
+    x2, y2 = goal
+    return abs(x1 - x2) + abs(y1 - y2)
 
 def decide(paths,costs):
     return paths[costs.index(min(costs))],min(costs)
@@ -301,21 +346,25 @@ def move_agent(map_data,agent_movements, initial, objective,cost):
     else:
         print("Objective not found!")
 
-
 map_data=load_map('map.txt')
 display_map(map_data)
 map_data,initial,objective=scan_map(map_data)
 while True:
     print("1. Solve by BFS")
     print("2. Solve by DFS")
-    print("3. Solve Manually")
-    print("4. Exit")
+    print("3. Solve by A*")
+    print("4. Solve Manually")
+    print("5. Exit")
     choice = input("Enter your choice: ")
     if(choice == "1" or choice == "2"):
         agent_type = input("Enter the agent type: ")
     if choice == "1":
         graph = create_graph(agent_type,map_data)
-        paths,costs = bfs(graph, initial, objective)
+        paths,nopaths,costs = bfs(graph, initial, objective)
+        print(graph)
+        print("Successful paths: {}".format(paths))
+        print("Successful costs: {}".format(costs))
+        print("Unsuccessful paths: {}".format(nopaths))
         path,cost = decide(paths,costs)
         move_agent(map_data,path,initial,objective,cost)
     elif choice == "2":
@@ -324,9 +373,14 @@ while True:
         path,cost = decide(paths,costs)
         move_agent(map_data,path,initial,objective,cost)
     elif choice == "3":
+        graph = create_graph(agent_type,map_data)
+        paths,costs = astar(graph, initial, objective, manhattan_distance)
+        path,cost = decide(paths,costs)
+        move_agent(map_data,path,initial,objective,cost) 
+    elif choice == "4":
         agent_type,agent_movements=load_agent('agent.txt')
         movement_controled(agent_type,map_data,agent_movements,initial,objective)
-    elif choice == "4":
+    elif choice == "5":
         print("Exiting the program...")
         break
     else:
