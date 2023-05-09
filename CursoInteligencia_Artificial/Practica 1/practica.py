@@ -6,6 +6,7 @@ from matplotlib import patches
 from matplotlib import collections as coll
 from collections import defaultdict, deque
 import heapq
+import random
 
 terrain_colors = {
     0: (0.5, 0.5, 0.5),  # Mountain - gray
@@ -59,6 +60,33 @@ agents_movement_cost = {
     ('sasquatch', 5): 0, # sasquatch agent cost to traverse swamp terrain
     ('sasquatch', 6): 0, # sasquatch agent cost to traverse snow terrain
 } 
+
+def generar_mapa(n):
+    # Crear una matriz vacía de tamaño n x n
+    mapa = [[None] * n for _ in range(n)]
+    
+    # Llenar la matriz con valores aleatorios que cumplan las características
+    for i in range(n):
+        for j in range(n):
+            # El valor y es 0, excepto en dos celdas que deben tener 2 y 5
+            if (i == 0 and j == 1) or (i == n-1 and j == n-2):
+                y = random.choice([2, 5])
+            else:
+                y = 0
+                
+            # El valor x es un entero entre 0 y 6, donde 0 representa una barrera
+            x = random.randint(0, 6)
+            
+            # El valor z es 0 o 1
+            z = random.randint(0, 1)
+            
+            # Guardar los valores en la celda correspondiente
+            mapa[i][j] = (x, y, z)
+            
+    # Convertir la matriz a un array de numpy
+    mapa_array = np.array(mapa)
+    
+    return mapa_array
 
 def load_map(filename):
     with open(filename, 'r') as f:
@@ -226,7 +254,8 @@ def create_graph(agent_type,map_data):
 
                     # calculate cost to move from cell to neighbor
                     cost = agents_movement_cost[(agent_type, terrain)]
-
+                    if cost == 0:
+                        continue
                     # add edge to graph
                     graph[(row, col)].append(((n_row, n_col), cost))
     return graph
@@ -237,9 +266,8 @@ def bfs(graph, start, end):
     # initialize a set to keep track of visited nodes
     visited = set()
     # initialize lists to store the paths and their respective costs
-    successful_paths = []
-    unsuccessful_paths = []
-    successful_costs = []
+    paths = []
+    costs = []
 
     # continue searching while there are still nodes to explore
     while queue:
@@ -248,11 +276,8 @@ def bfs(graph, start, end):
         # if this node is the ending node, we've found a path
         if node == end:
             # store the path and its cost
-            successful_paths.append(path)
-            successful_costs.append(cost)
-        else:
-            # store the unsuccessful path
-            unsuccessful_paths.append(path)
+            paths.append(path)
+            costs.append(cost)
 
         # mark this node as visited
         visited.add(node)
@@ -264,7 +289,7 @@ def bfs(graph, start, end):
                 queue.append((neighbor, path + [neighbor], cost + neighbor_cost))
 
     # if we reach this point, there is no path from start to end
-    return successful_paths, unsuccessful_paths, successful_costs
+    return paths,costs
 
 def dfs(graph, start, end, path=[], cost=0, paths=[], costs=[]):
     # add the current node to the path
@@ -326,27 +351,68 @@ def manhattan_distance(current, goal):
 def decide(paths,costs):
     return paths[costs.index(min(costs))],min(costs)
 
-def move_agent(map_data,agent_movements, initial, objective,cost):
-    agent_posx = initial[0]
-    agent_posy = initial[1]
-    agent_pos = (agent_posx,agent_posy)
-    for move in agent_movements:
-        print(move)
-        x, y = move  # unpack the x and y coordinates of the next movement
-        map_data = mark_positions(map_data, [((move), 'current'),((agent_pos), 'visited')])
-        auxx= agent_posx + x  # update the agent's x position
-        auxy= agent_posy + y  # update the agent's y position
-        agent_pos = (auxx,auxy)
-       
+def move_agent(map_data,path,objective,cost):
+    prev_move = None
+    for i in range(len(path)):
+        current_move = path[i]
+        if i == 0:
+            prev_move = current_move
+        else:    
+            prev_move = path[i-1]
+        map_data = mark_positions(map_data, [((current_move), 'current'),((prev_move), 'visited')])
         display_map(map_data)  # display the map
         time.sleep(0.5)  # wait for 0.5 seconds
-    if objective == agent_pos:
+    if objective == current_move:
         print("Objective found!")
         print("Total movement cost: {}".format(cost))
     else:
         print("Objective not found!")
 
+def bfs_tree(graph, start):
+    visited = set()
+    queue = [start]
+    bfs_tree = defaultdict(list)
+
+    while queue:
+        node = queue.pop(0)
+        visited.add(node)
+        for neighbor, cost in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+                bfs_tree[node].append((neighbor, cost))
+
+    return bfs_tree
+
+def dfs_tree(graph, start):
+    visited = set()
+    stack = [start]
+    dfs_tree = defaultdict(list)
+
+    while stack:
+        node = stack.pop()
+        visited.add(node)
+        for neighbor, cost in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                stack.append(neighbor)
+                dfs_tree[node].append((neighbor, cost))
+
+    return dfs_tree
+
+def print_tree(tree):
+    for node, edges in tree.items():
+        print(f"{node}:")
+        for edge in edges:
+            print(f"├── {edge}")
+        if not edges:
+            print("└──")
+
+
+#para usar un mapa ya diseñado
 map_data=load_map('map.txt')
+#para crear un mapa aleatorio
+#map_data=generar_mapa(15)
 display_map(map_data)
 map_data,initial,objective=scan_map(map_data)
 while True:
@@ -356,27 +422,25 @@ while True:
     print("4. Solve Manually")
     print("5. Exit")
     choice = input("Enter your choice: ")
-    if(choice == "1" or choice == "2"):
+    if(choice == "1" or choice == "2" or choice == "3"):
         agent_type = input("Enter the agent type: ")
+        graph = create_graph(agent_type,map_data)
     if choice == "1":
-        graph = create_graph(agent_type,map_data)
-        paths,nopaths,costs = bfs(graph, initial, objective)
-        print(graph)
-        print("Successful paths: {}".format(paths))
-        print("Successful costs: {}".format(costs))
-        print("Unsuccessful paths: {}".format(nopaths))
+        tree= bfs_tree(graph, initial)
+        paths,costs = bfs(graph, initial, objective, manhattan_distance)
         path,cost = decide(paths,costs)
-        move_agent(map_data,path,initial,objective,cost)
+        move_agent(map_data,path,objective,cost) 
+        print_tree(tree)
     elif choice == "2":
-        graph = create_graph(agent_type,map_data)
-        paths,costs = dfs(graph, initial, objective)
+        paths,costs = dfs(graph, initial, objective, manhattan_distance)
         path,cost = decide(paths,costs)
-        move_agent(map_data,path,initial,objective,cost)
+        move_agent(map_data,path,objective,cost) 
+        tree= dfs_tree(graph, initial)
+        print_tree(tree)
     elif choice == "3":
-        graph = create_graph(agent_type,map_data)
         paths,costs = astar(graph, initial, objective, manhattan_distance)
         path,cost = decide(paths,costs)
-        move_agent(map_data,path,initial,objective,cost) 
+        move_agent(map_data,path,objective,cost) 
     elif choice == "4":
         agent_type,agent_movements=load_agent('agent.txt')
         movement_controled(agent_type,map_data,agent_movements,initial,objective)

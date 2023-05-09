@@ -1,0 +1,5 @@
+Esta practica contiene tanto DFS como BFS y manual el programa recibe un archivo txt llamado map y si se desea mover al agente de manera manual se debera incluir otro txt llamado agent el cual en la primera linea tendra el tipo de agente y en la segunda los movimientos como se muestran en el ejemplo adjunto 
+
+El mapa tiene que tener el siguiente formato para cada celda x:y:z donde x indicara el tipo de terreno siendo un entero del 0-6 y indicara si la casilla tiene una marca el mapa unicamente debera tener marcada 2 casillas una con un 2 indicando el inicio y otra con un 5 indicando el objetivo por ultimo z indicara la visibilidad de la casilla si esta es visible con 1 o invisible 0
+
+se incluyo tambien una funcion que genera un mapa aleatorio por si se desea provar ahi unicamente se debe llamar de la siguiente manera en lugar de la funcion load_map map_data=generar_mapa(entero del tamaño que sera el mapa)
