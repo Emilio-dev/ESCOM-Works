@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopPage</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      text-align: center;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+    }
+    
+    .form-container {
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+      display: none;
+    }
+    
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .form-container .button {
+      width: auto;
+    }
+    
+    .search-container {
+      text-align: center;
+      margin-top: 50px;
+      display: none;
+    }
+    
+    .search-container input {
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .search-container .button {
+      width: auto;
+    }
+    
+    .results-container {
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+      display: none;
+    }
+  </style>
+  <script>
+    function showForm() {
+      var formContainer = document.getElementById("form-container");
+      var searchContainer = document.getElementById("search-container");
+      var resultsContainer = document.getElementById("results-container");
+      
+      formContainer.style.display = "block";
+      searchContainer.style.display = "none";
+      resultsContainer.style.display = "none";
+    }
+    
+    function showSearch() {
+      var formContainer = document.getElementById("form-container");
+      var searchContainer = document.getElementById("search-container");
+      var resultsContainer = document.getElementById("results-container");
+      
+      formContainer.style.display = "none";
+      searchContainer.style.display = "block";
+      resultsContainer.style.display = "none";
+    }
+    
+    function searchArticles() {
+      var formContainer = document.getElementById("form-container");
+      var searchContainer = document.getElementById("search-container");
+      var resultsContainer = document.getElementById("results-container");
+      
+      formContainer.style.display = "none";
+      searchContainer.style.display = "none";
+      resultsContainer.style.display = "block";
+      
+      // Aquí puedes agregar la lógica para realizar la búsqueda de los artículos y mostrar los resultados.
+    }
+    
+    function captureArticle() {
+      var nombre = $("#nombre").val();
+      var descripcion = $("#descripcion").val();
+      var precio = $("#precio").val();
+      var cantidad = $("#cantidad").val();
+      var foto = $("#foto").val();
+      
+      var data = {
+        nombre: nombre,
+        descripcion: descripcion,
+        precio: precio,
+        cantidad: cantidad,
+        foto: foto
+      };
+      
+      $.ajax({
+        url: "https://example.com", // Reemplaza con la URL correcta
+        type: "GET",
+        data: data,
+        success: function(response) {
+          // Manejar la respuesta exitosa del servidor si es necesario
+        },
+        error: function(xhr, status, error) {
+          // Manejar el error si ocurrió alguno durante la solicitud AJAX
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Bienvenido a ShopPage</h1>
+  
+  <a href="#" class="button" onclick="showForm()">Capturar artículo</a>
+  <a href="#" class="button" onclick="showSearch()">Compra de artículos</a>
+  
+  <div id="form-container" class="form-container">
+    <h2>Capturar artículo</h2>
+    <form>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre del artículo" required>
+      <textarea id="descripcion" name="descripcion" placeholder="Descripción del artículo" required></textarea>
+      <input type="number" id="precio" name="precio" placeholder="Precio" required>
+      <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad en almacén" required>
+      <input type="file" id="foto" name="foto" accept="image/*">
+      <br><br>
+      <input type="button" value="Guardar" class="button" onclick="captureArticle()">
+    </form>
+  </div>
+  
+  <div id="search-container" class="search-container">
+    <h2>Buscar Artículos</h2>
+    <input type="text" id="nombre_busqueda" name="nombre_busqueda" placeholder="Nombre del artículo">
+    <br><br>
+    <input type="button" value="Buscar" class="button" onclick="searchArticles()">
+  </div>
+  
+  <div id="results-container" class="results-container">
+    <h2>Resultados de la búsqueda</h2>
+    <!-- Aquí se mostrarían los resultados de la búsqueda de artículos -->
+  </div>
+  
+</body>
+</html>
