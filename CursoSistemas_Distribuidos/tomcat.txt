@@ -1,3 +1,4 @@
 export CATALINA_HOME=/home/ubuntu/apache-tomcat-8.5.89
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 sh $CATALINA_HOME/bin/catalina.sh start
+sudo java SimpleProxyServer 172.174.163.138 8080 80 8080 &

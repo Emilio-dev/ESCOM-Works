@@ -1,0 +1,26 @@
+añadir
+
+>= mayorIgualToken ya van conjunto a mayor y menor
+<= menorIgualToken ya 
+
+null = nuloToken ya
+entonces = entoncesToken ya
+number = numberToken es floatToken y IntegerToken
+
+, = comaToken ya
+
+!=  diferenteToken ya
+¬ = notToken  ya
+
+. = puntoToken ya
+
+acuerdate if = si 
+y print = imprimir
+return =retornar
+
+float ya no consume . extra
+
+error en el parentesis de apertura si no tiene un espacio lo considera como uno solo corregido
+
+todo funciona excepto expreciones sin palabra reservada como tanque =tanque+1; 
+causa no se
