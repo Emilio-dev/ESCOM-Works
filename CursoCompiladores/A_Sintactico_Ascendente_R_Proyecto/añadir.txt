@@ -22,5 +22,5 @@ float ya no consume . extra
 
 error en el parentesis de apertura si no tiene un espacio lo considera como uno solo corregido
 
-todo funciona excepto expreciones sin palabra reservada como tanque =tanque+1; 
-causa no se
+falla la prueba 5 desconocido
+falla la prueba 7 a partir de la suma funciona cuando es con var asi que el problema es el exprstmnt
