@@ -1,5 +1,4 @@
 import numpy as np
-import numpy as np
 
 def separate_data(filename, separator):
     data = []
@@ -88,11 +87,6 @@ def analyze_data(data):
                 print(f"{value}: {count} entries")
 
         print()
-
-
-
-
-
 
 file="iris.txt"
 separator=","

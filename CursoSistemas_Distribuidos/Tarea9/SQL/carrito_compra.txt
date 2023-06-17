@@ -1,0 +1,8 @@
+CREATE TABLE `t9-bd-2020630140`.`carrito_compra` (
+  `idProduct` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(45) NOT NULL,
+  `price` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  `picture` LONGBLOB NULL,
+  PRIMARY KEY (`idProduct`));

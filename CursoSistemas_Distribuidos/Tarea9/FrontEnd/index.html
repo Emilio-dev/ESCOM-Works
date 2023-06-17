@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopPage</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      text-align: center;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+    }
+    
+    .form-container {
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+      display: none;
+    }
+    
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .form-container .button {
+      width: auto;
+    }
+    
+    .search-container {
+      text-align: center;
+      margin-top: 50px;
+      display: none;
+    }
+    
+    .search-container input {
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .search-container .button {
+      width: auto;
+    }
+    
+    .results-container {
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+      display: none;
+    }
+  </style>
+  <script>
+
+    function showForm() { 
+      var formContainer = document.getElementById("form-container");
+        var searchContainer = document.getElementById("search-container");
+        var resultsContainer = document.getElementById("results-container");
+        var carritoContainer = document.getElementById("carrito-container");
+        
+        formContainer.style.display = "block";
+        searchContainer.style.display = "none";
+        resultsContainer.style.display = "none";
+        carritoContainer.style.display = "none";
+      }
+      
+    function showSearch() {
+      var formContainer = document.getElementById("form-container");
+        var searchContainer = document.getElementById("search-container");
+        var resultsContainer = document.getElementById("results-container");
+        var carritoContainer = document.getElementById("carrito-container");
+        
+        formContainer.style.display = "none";
+        searchContainer.style.display = "block";
+        resultsContainer.style.display = "none";
+        carritoContainer.style.display = "none";
+      }
+
+    function showCarrito(){
+        var formContainer = document.getElementById("form-container");
+        var searchContainer = document.getElementById("search-container");
+        var resultsContainer = document.getElementById("results-container");
+        var carritoContainer = document.getElementById("carrito-container");
+        
+        formContainer.style.display = "none";
+        searchContainer.style.display = "none";
+        resultsContainer.style.display = "none";
+        carritoContainer.style.display = "block";
+        searchCarrito();
+    }  
+
+    function captureArticle() { //falta checar que no sean vacios
+      var name = $("#name").val();
+      var description = $("#description").val();
+      var price = $("#price").val();
+      var quantity = $("#quantity").val();
+      var imageInput = document.getElementById("picture");
+
+      var reader = new FileReader();
+      reader.onload = function(event) {
+      var arrayBuffer = event.target.result;
+      var byteArray = new Uint8Array(arrayBuffer);
+
+        var data = {
+          name: name,
+          description: description,
+          price: price,
+          quantity: quantity,
+          picture: Array.from(byteArray) // Convertir Uint8Array a Array
+        };
+
+        $.ajax({
+          url: "https://t9-af-2020630140.azurewebsites.net/api/UploadProduct?code=_CBc_2ZTQMIBDh-xF6xX87ZGAmbFKavmBPJ-7wrzYenkAzFuda8h8g==", // Reemplaza con la URL correcta
+          type: "POST",
+          data: JSON.stringify(data),
+          contentType: "application/json",
+          success: function(response) {
+            window.location.reload();
+            alert("Producto agregado exitosamente.");
+            // Manejar la respuesta exitosa del servidor si es necesario
+          },
+          error: function(xhr, status, error) {
+            console.log(error);
+            // Manejar el error si ocurrió alguno durante la solicitud AJAX
+          }
+        });
+      };
+
+      reader.readAsArrayBuffer(imageInput.files[0]);
+    }
+
+    function searchArticles() { //falta checar que no sean vacios
+      var name = document.getElementById("searchInput").value;
+      console.log(name);
+      // Verificar si se proporcionó un nombre
+      var data = {
+        name: name
+      };
+
+      // Realizar la solicitud AJAX al backend
+      $.ajax({
+        url: "https://t9-af-2020630140.azurewebsites.net/api/SearchProduct?code=N572OqC85zk_vdVV68PhDVJtpJ9BJ2zfiK9Ko5DVU2_BAzFuQpKayw==",
+        type: "POST",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        success: function (response) {
+          // La respuesta contiene los productos encontrados       
+          displayProductsSearch(response);
+        },
+        error: function (error) {
+          console.log("Error al realizar la búsqueda de productos:", error);
+          alert("Ocurrió un error al buscar productos.");
+        }
+      });
+    }
+
+    function displayProductsSearch(products) {
+      var productListContainer = document.getElementById('productList');
+
+      // Limpiar el contenido existente
+      productListContainer.innerHTML = '';
+
+      // Verificar si no se encontraron productos
+      if (products.length === 0) {
+        var mensaje = document.createElement('p');
+        mensaje.textContent = 'No se encontraron productos con ese nombre.';
+        productListContainer.appendChild(mensaje);
+        return;
+      }
+
+      // Generar las ventanas emergentes para cada artículo
+      products.forEach(function (product) {
+        var ventana = document.createElement('div');
+        ventana.classList.add('ventana');
+
+        var titulo = document.createElement('h3');
+        titulo.textContent = product.name;
+        ventana.appendChild(titulo);
+
+        var descripcion = document.createElement('p');
+        descripcion.textContent = product.description;
+        ventana.appendChild(descripcion);
+
+        var precio = document.createElement('p');
+        precio.textContent = 'Precio: $' + product.price;
+        ventana.appendChild(precio);
+
+        var cantidad = document.createElement('p');
+        cantidad.textContent = 'Cantidad: ' + product.quantity;
+        ventana.appendChild(cantidad);
+
+        var imagen = document.createElement('img');
+        imagen.src = 'data:image/png;base64,' + product.imageData;
+        ventana.appendChild(imagen);
+
+        var addToCartButton = document.createElement('button');
+        addToCartButton.textContent = 'Añadir al carrito';
+        addToCartButton.addEventListener('click', function () {
+          var cantidadInput = prompt('¿Cuántos quieres?');
+          if (cantidadInput !== null) {
+            var cantidad = parseInt(cantidadInput);
+            if (!isNaN(cantidad)) {
+              addToCart(product.id, cantidad);
+            } else {
+              alert('Por favor, ingresa una cantidad válida.');
+            }
+          }
+        });
+        ventana.appendChild(addToCartButton);
+
+        productListContainer.appendChild(ventana);
+      });
+
+      // Mostrar el contenedor de resultados
+      var resultsContainer = document.getElementById('results-container');
+      resultsContainer.style.display = 'block';
+    }
+
+    function addToCart(idProduct, quantity) {
+      var data = {
+        id: idProduct,
+        quantity: quantity
+      };
+      // Realizar la solicitud AJAX al backend
+      $.ajax({
+        url: "https://t9-af-2020630140.azurewebsites.net/api/AddToCart?code=_K9S-Z-y8nCZH5OP4hxdB9g-x9WfK7K1-TLlb8fZ130iAzFuZjBvHw==",
+        type: "POST",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        success: function (response) {
+          alert("Producto agregado exitosamente al carrito.");
+        },
+        error: function (error) {
+          console.log("Error al añadir el producto:", error);
+          alert("Ocurrió un error al añadir el producto.");
+        }
+      });
+    }
+
+    function searchCarrito() {
+      // Realizar la solicitud AJAX al backend
+      $.ajax({
+        url: "https://t9-af-2020630140.azurewebsites.net/api/GetCartItems?code=luveYWXhnyuABbOZ_b5-QkzST7802qBwnKqXMS_gWSuKAzFuB_9ctQ==",
+        type: "GET",
+        success: function (response) {
+          displayProductsCarrito(response);
+        },
+        error: function (error) {
+          console.log("Error al mostrar el carrito.", error);
+          alert("Ocurrió un error al mostrar el carrito.");
+        }
+      });
+    }
+
+  function displayProductsCarrito(products) {
+  var productListContainer = document.getElementById('carritoList');
+  var total = 0;
+
+  // Limpiar el contenido existente
+  productListContainer.innerHTML = '';
+
+  // Generar las ventanas emergentes para cada artículo
+  products.forEach(function (product) {
+    var ventana = document.createElement('div');
+    ventana.classList.add('ventana');
+
+    var titulo = document.createElement('h3');
+    titulo.textContent = product.name;
+    ventana.appendChild(titulo);
+
+    var descripcion = document.createElement('p');
+    descripcion.textContent = product.description;
+    ventana.appendChild(descripcion);
+
+    var precio = document.createElement('p');
+    precio.textContent = 'Precio: $' + product.price;
+    ventana.appendChild(precio);
+
+    var cantidad = document.createElement('p');
+    cantidad.textContent = 'Cantidad: ' + product.quantity;
+    ventana.appendChild(cantidad);
+
+    var imagen = document.createElement('img');
+    imagen.src = 'data:image/png;base64,' + product.imageData;
+    ventana.appendChild(imagen);
+
+    var eliminarBtn = document.createElement('button');
+    eliminarBtn.textContent = 'Eliminar del carrito';
+    eliminarBtn.addEventListener('click', function() {
+      deletePC(product.id);
+    });
+    ventana.appendChild(eliminarBtn);
+
+    var modificarBtn = document.createElement('button');
+    modificarBtn.textContent = 'Modificar cantidad';
+    modificarBtn.addEventListener('click', function() {
+      var cantidadNueva = prompt('¿Cuántos?');
+      if (cantidadNueva !== null) {
+        UpdateQ(product.id, parseInt(cantidadNueva));
+      }
+    });
+    ventana.appendChild(modificarBtn);
+
+    productListContainer.appendChild(ventana);
+
+    // Calcular el total de la suma de precios
+    total += product.price;
+  });
+
+    // Mostrar el total
+    var totalElement = document.createElement('p');
+    totalElement.textContent = 'Total: $' + total;
+    productListContainer.appendChild(totalElement);
+
+    // Agregar el botón "Eliminar carrito"
+    var eliminarCarritoBtn = document.createElement('button');
+    eliminarCarritoBtn.textContent = 'Eliminar carrito';
+    eliminarCarritoBtn.addEventListener('click', function() {
+      var confirmacion = confirm('¿Estás seguro de que deseas eliminar el carrito?');
+      if (confirmacion) {
+        deleteCarrito();
+      }
+    });
+    productListContainer.appendChild(eliminarCarritoBtn);
+
+    // Mostrar el contenedor de resultados
+    var resultsContainer = document.getElementById('carrito-container');
+    resultsContainer.style.display = 'block';
+  }
+
+  function deletePC(idProduct) {
+    var data = {
+      id: idProduct,
+    };
+    // Realizar la solicitud AJAX al backend
+    $.ajax({
+      url: "https://t9-af-2020630140.azurewebsites.net/api/RemoveFromCart?code=RM4NJ7MSY_d2MSVskAQHakXjWdqfkILyVE1u3J3dA0TaAzFugpYSiA==",
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      success: function (response) {
+        alert("Producto eliminado del carrito.");
+      },
+      error: function (error) {
+        console.log("Error al eliminar el producto:", error);
+        alert("Ocurrió un error al eliminar el producto.");
+      }
+    });
+  }
+
+  function UpdateQ(idProduct, quantity) {
+    console.log(idProduct, quantity);
+
+    var data = {
+      id: idProduct,
+      quantity: quantity
+    };
+    // Realizar la solicitud AJAX al backend
+    $.ajax({
+      url: "https://t9-af-2020630140.azurewebsites.net/api/ModifyQuantity?code=7f6VgNHyqFgyRJoTyYip4e7jP3gpDUi72Zh54quQivJKAzFusqV5Kg==",
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      success: function (response) {
+        alert("Cantidad modificada exitosamente.");
+      },
+      error: function (error) {
+        console.log("Error al modificar la cantidad:", error);
+        alert("Ocurrió un error al modificar la cantidad.");
+      }
+    });
+  }
+  
+  function deleteCarrito() {
+      // Realizar la solicitud AJAX al backend
+    $.ajax({
+      url: "https://t9-af-2020630140.azurewebsites.net/api/RemoveCart?code=HcHL-cPEZNY2o1wS1qy4E6IG3k5geMNF3KHMAi5gLKz6AzFumB3gFA==",
+      type: "GET",
+      success: function (response) {
+        alert("Carrito eliminado exitosamente.");
+      },
+      error: function (error) {
+        console.log("Error al eliminar el carrito.", error);
+        alert("Ocurrió un error al eliminar el carrito.");
+      }
+    });
+  }
+
+  </script>
+</head>
+<body>
+  <h1>Bienvenido a ShopPage</h1>
+  
+  <a href="#" class="button" onclick="showForm()">Capturar artículo</a>
+  <a href="#" class="button" onclick="showSearch()">Compra de artículos</a>
+  <a href="#" class="button" onclick="showCarrito()">Carrito de compras</a>
+  
+  <div id="form-container" class="form-container">
+    <h2>Capturar artículo</h2>
+    <form>
+      <input type="text" id="name" name="name" placeholder="Nombre del artículo" required>
+      <textarea id="description" name="description" placeholder="Descripción del artículo" required></textarea>
+      <input type="number" id="price" name="price" placeholder="precio" required>
+      <input type="number" id="quantity" name="quantity" placeholder="Cantidad en almacén" required>
+      <input type="file" id="picture" name="picture" accept="image/*">
+      <br><br>
+      <input type="button" value="Guardar" class="button" onclick="captureArticle()">
+    </form>
+  </div>
+  
+  <div id="search-container" class="search-container">
+    <h2>Buscar Artículos</h2>
+    <input type="text" id="searchInput" name="name_busqueda" placeholder="nombre del artículo">
+    <br><br>
+    <input type="button" value="Buscar" class="button" onclick="searchArticles()">
+  </div>
+  
+  <div id="results-container" class="results-container">
+    <h2>Resultados de la búsqueda</h2>
+    <div id="productList"></div>
+  </div>
+
+  <div id="carrito-container" class="carrito-container">
+    <h2>Contenido del Carrito</h2>
+    <div id="carritoList"></div>
+  </div>
+  
+</body>
+</html>

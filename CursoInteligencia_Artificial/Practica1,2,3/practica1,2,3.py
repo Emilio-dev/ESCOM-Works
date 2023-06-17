@@ -7,6 +7,9 @@ from matplotlib import collections as coll
 from collections import defaultdict, deque
 import heapq
 import random
+import networkx as nx
+import matplotlib.pyplot as plt
+
 
 terrain_colors = {
     0: (0.5, 0.5, 0.5),  # Mountain - gray
@@ -261,85 +264,81 @@ def create_graph(agent_type,map_data):
     return graph
 
 def bfs(graph, start, end):
-    # initialize the queue with the starting node
     queue = deque([(start, [start], 0)])
-    # initialize a set to keep track of visited nodes
     visited = set()
-    # initialize lists to store the paths and their respective costs
     paths = []
     costs = []
 
-    # continue searching while there are still nodes to explore
     while queue:
-        # get the next node to explore and its path to the current point
         node, path, cost = queue.popleft()
-        # if this node is the ending node, we've found a path
+        
+        visited.add(node)
+
         if node == end:
-            # store the path and its cost
             paths.append(path)
             costs.append(cost)
 
-        # mark this node as visited
-        visited.add(node)
 
-        # add all unvisited neighbors with non-zero cost to the queue
         for neighbor, neighbor_cost in graph[node]:
             if neighbor not in visited and neighbor_cost > 0:
-                # append the neighbor to the path, add to the cost and add to the queue
-                queue.append((neighbor, path + [neighbor], cost + neighbor_cost))
+                new_path = path + [neighbor]
+                new_cost = cost + neighbor_cost
+                queue.append((neighbor, new_path, new_cost))
 
-    # if we reach this point, there is no path from start to end
-    return paths,costs
+    if not paths:
+        print("No path found from", start, "to", end)  # Print if no path is found
+
+    return paths, costs
 
 def dfs(graph, start, end, path=[], cost=0, paths=[], costs=[]):
-    # add the current node to the path
     path = path + [start]
-    
-    # if the current node is the end node, add the path and cost to the lists
+
     if start == end:
         paths.append(path)
         costs.append(cost)
-    
-    # for each neighbor of the current node, if it hasn't been visited, explore it
+
     for neighbor, neighbor_cost in graph[start]:
         if neighbor not in path and neighbor_cost > 0:
             dfs(graph, neighbor, end, path, cost + neighbor_cost, paths, costs)
-    
-    # return the lists of paths and costs
+
     return paths, costs
 
 def astar(graph, start, end, heuristic):
-    # initialize the priority queue with the starting node
     queue = [(heuristic(start, end), 0, start, [start])]
-    # initialize a set to keep track of visited nodes
     visited = set()
-    # initialize lists to store the paths and their respective costs
     paths = []
     costs = []
 
-    # continue searching while there are still nodes to explore
+    # Create an empty graph
+    G = nx.Graph()
+
     while queue:
-        # get the next node with the minimum f-score to explore and its path to the current point
         _, cost, node, path = heapq.heappop(queue)
-        # if this node is the ending node, we've found a path
+
         if node == end:
-            # store the path and its cost
             paths.append(path)
             costs.append(cost)
 
-        # mark this node as visited
         visited.add(node)
 
-        # add all unvisited neighbors with non-zero cost to the queue
         for neighbor, neighbor_cost in graph[node]:
             if neighbor not in visited and neighbor_cost > 0:
-                # append the neighbor to the path, add to the cost and add to the queue with updated f-score
                 g_score = cost + neighbor_cost
                 h_score = heuristic(neighbor, end)
                 f_score = g_score + h_score
                 heapq.heappush(queue, (f_score, g_score, neighbor, path + [neighbor]))
 
-    # if we reach this point, there is no path from start to end
+                # Add an edge to the graph to represent the exploration
+                G.add_edge(node, neighbor)
+
+        # Visualize the graph
+        nx.draw(G, with_labels=True)
+        plt.pause(0.5)
+        plt.clf()
+
+    if not paths:
+        print("No path found from", start, "to", end)  # Print if no path is found
+
     return paths, costs
 
 def manhattan_distance(current, goal):
@@ -408,7 +407,6 @@ def print_tree(tree):
         if not edges:
             print("└──")
 
-
 #para usar un mapa ya diseñado
 map_data=load_map('map.txt')
 #para crear un mapa aleatorio
@@ -426,13 +424,14 @@ while True:
         agent_type = input("Enter the agent type: ")
         graph = create_graph(agent_type,map_data)
     if choice == "1":
-        tree= bfs_tree(graph, initial)
-        paths,costs = bfs(graph, initial, objective, manhattan_distance)
+
+        paths,costs = bfs(graph, initial, objective)
         path,cost = decide(paths,costs)
         move_agent(map_data,path,objective,cost) 
+        tree= bfs_tree(graph, initial)
         print_tree(tree)
     elif choice == "2":
-        paths,costs = dfs(graph, initial, objective, manhattan_distance)
+        paths,costs = dfs(graph, initial, objective)
         path,cost = decide(paths,costs)
         move_agent(map_data,path,objective,cost) 
         tree= dfs_tree(graph, initial)

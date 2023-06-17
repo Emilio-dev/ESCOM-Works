@@ -65,32 +65,6 @@ agents_movement_cost = {
     ('sasquatch', 6): 0, # sasquatch agent cost to traverse snow terrain
 } 
 
-def generar_mapa(n):
-    # Crear una matriz vacía de tamaño n x n
-    mapa = [[None] * n for _ in range(n)]
-    
-    # Llenar la matriz con valores aleatorios que cumplan las características
-    for i in range(n):
-        for j in range(n):
-            # El valor y es 0, excepto en dos celdas que deben tener 2 y 5
-            if (i == 0 and j == 1) or (i == n-1 and j == n-2):
-                y = random.choice([2, 5])
-            else:
-                y = 0
-                
-            # El valor x es un entero entre 0 y 6, donde 0 representa una barrera
-            x = random.randint(0, 6)
-            
-            # El valor z es 0 o 1
-            z = random.randint(0, 1)
-            
-            # Guardar los valores en la celda correspondiente
-            mapa[i][j] = (x, y, z)
-            
-    # Convertir la matriz a un array de numpy
-    mapa_array = np.array(mapa)
-    
-    return mapa_array
 
 def load_map(filename):
     with open(filename, 'r') as f:
@@ -191,15 +165,6 @@ def mark_positions(map_data, positions):
 
     return map_data
 
-def load_agent(filename):
-    with open(filename, 'r') as file:
-        # read the first line into a variable
-        agent_type = file.readline().strip()
-        # read the remaining lines into a NumPy array
-        agents_movement = np.array(file.readline().strip().split(','))
-        
-    return agent_type, agents_movement
-
 def scan_map(map_data) :
     for row in range(map_data.shape[0]):
         for col in range(map_data.shape[1]):
@@ -218,39 +183,6 @@ def scan_map(map_data) :
             map_data[row, col] = (terrain_type, mark_value, visible)
 
     return map_data,initialA2,initalA2,portall,key,Dtemple
-
-def movement_controled(agente, map_data,movimientos,initial, objective):
-    auxX,auxY= initial
-    posX,posY = initial
-    movement_cost = 0
-    for movimiento in movimientos:
-        print(movimiento)
-        if movimiento == "left":
-            auxX -= 1
-        elif movimiento == "right":
-            auxX += 1
-        elif movimiento == "up":
-            auxY += 1
-        elif movimiento == "down":
-            auxY -= 1
-        else:
-            raise ValueError("Invalid movement character")
-        terrain_type, _, _ = get_terrain_type(map_data, auxX, auxY)
-        # Get the movement cost for the current terrain agent_type   
-        movement_cost += agents_movement_cost[(agente, terrain_type)]
-        # Mark the current position as visited
-        map_data = mark_positions(map_data, [((auxX, auxY), 'current'),((posX, posY), 'visited')])
-        # Display the map
-        display_map(map_data)
-        posY = auxY
-        posX = auxX
-        # Wait for 0.5 seconds
-        time.sleep(0.5)
-        if (auxX, auxY) == objective:
-            print("Objective found!")
-            print("Total movement cost: {}".format(movement_cost))
-            break
-    return  
 
 def create_graph(agent_type,map_data):
     graph = defaultdict(list)
@@ -273,54 +205,6 @@ def create_graph(agent_type,map_data):
                     # add edge to graph
                     graph[(row, col)].append(((n_row, n_col), cost))
     return graph
-
-def bfs(graph, start, end):
-    # initialize the queue with the starting node
-    queue = deque([(start, [start], 0)])
-    # initialize a set to keep track of visited nodes
-    visited = set()
-    # initialize lists to store the paths and their respective costs
-    paths = []
-    costs = []
-
-    # continue searching while there are still nodes to explore
-    while queue:
-        # get the next node to explore and its path to the current point
-        node, path, cost = queue.popleft()
-        # if this node is the ending node, we've found a path
-        if node == end:
-            # store the path and its cost
-            paths.append(path)
-            costs.append(cost)
-
-        # mark this node as visited
-        visited.add(node)
-
-        # add all unvisited neighbors with non-zero cost to the queue
-        for neighbor, neighbor_cost in graph[node]:
-            if neighbor not in visited and neighbor_cost > 0:
-                # append the neighbor to the path, add to the cost and add to the queue
-                queue.append((neighbor, path + [neighbor], cost + neighbor_cost))
-
-    # if we reach this point, there is no path from start to end
-    return paths,costs
-
-def dfs(graph, start, end, path=[], cost=0, paths=[], costs=[]):
-    # add the current node to the path
-    path = path + [start]
-    
-    # if the current node is the end node, add the path and cost to the lists
-    if start == end:
-        paths.append(path)
-        costs.append(cost)
-    
-    # for each neighbor of the current node, if it hasn't been visited, explore it
-    for neighbor, neighbor_cost in graph[start]:
-        if neighbor not in path and neighbor_cost > 0:
-            dfs(graph, neighbor, end, path, cost + neighbor_cost, paths, costs)
-    
-    # return the lists of paths and costs
-    return paths, costs
 
 def astar(graph, start, end, heuristic):
     # initialize the priority queue with the starting node
@@ -379,46 +263,6 @@ def move_agent(map_data,path,agentNumber):
             map_data = mark_positions(map_data, [((current_move), 'currentA2'),((prev_move), 'visitedA2')])    
         display_map(map_data)  # display the map
         time.sleep(0.5)  # wait for 0.5 seconds
-
-def bfs_tree(graph, start):
-    visited = set()
-    queue = [start]
-    bfs_tree = defaultdict(list)
-
-    while queue:
-        node = queue.pop(0)
-        visited.add(node)
-        for neighbor, cost in graph[node]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                queue.append(neighbor)
-                bfs_tree[node].append((neighbor, cost))
-
-    return bfs_tree
-
-def dfs_tree(graph, start):
-    visited = set()
-    stack = [start]
-    dfs_tree = defaultdict(list)
-
-    while stack:
-        node = stack.pop()
-        visited.add(node)
-        for neighbor, cost in graph[node]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                stack.append(neighbor)
-                dfs_tree[node].append((neighbor, cost))
-
-    return dfs_tree
-
-def print_tree(tree):
-    for node, edges in tree.items():
-        print(f"{node}:")
-        for edge in edges:
-            print(f"├── {edge}")
-        if not edges:
-            print("└──")
 
 def combinePaths(paths,costs):
     new_paths = [
@@ -528,7 +372,35 @@ def remove_duplicate_tuples(paths_list):
         result_list.append(result)
     return result_list
 
+def imprimir(paths,costs,pathsU,costsU,pathFinal,costFinal):
+    print("Individual")
+    print("i-p",costs[0],paths[0])
+    print("i-k",costs[1],paths[1])
+    print("i-d",costs[2],paths[2])
+    print("k-d",costs[3],paths[3])
+    print("d-k",costs[4],paths[4])
+    print("k-p",costs[5],paths[5])
+    print("d-p",costs[6],paths[6])
 
+    print("Combinados")
+    print("I-P")
+    print("path: ",pathsU[0])
+    print("cost: ",costsU[0])
+    print("I-K-P")
+    print("path: ",pathsU[1])
+    print("cost: ",costsU[1])
+    print("I-D-P")
+    print("path: ",pathsU[2])
+    print("cost: ",costsU[2])
+    print("I-K-D-P")
+    print("path: ",pathsU[3])
+    print("cost: ",costsU[3])
+    print("I-D-K-P")
+    print("path: ",pathsU[4])
+    print("cost: ",costsU[4])
+    print("Path Final")
+    print("path: ",pathFinal)
+    print("cost: ",costFinal)
 #para usar un mapa ya diseñado
 map_data=load_map('map.txt')
 #para crear un mapa aleatorio
@@ -537,8 +409,7 @@ display_map(map_data)
 map_data,initialA1,initialA2,portal,key,Dtemple=scan_map(map_data)
 #display_map(map_data)
 graphA1 = create_graph('human',map_data)
-graphA2 = create_graph('octopus',map_data)
-
+graphA2 = create_graph('monkey',map_data)
 
 # for agent 1
 A1Paths, A1Costs = find_paths(graphA1, initialA1,key, Dtemple, portal,manhattan_distance)
@@ -546,35 +417,21 @@ A1Paths, A1Costs = find_paths(graphA1, initialA1,key, Dtemple, portal,manhattan_
 # for agent 2
 A2Paths, A2Costs = find_paths(graphA1, initialA2,key, Dtemple, portal,manhattan_distance)
 
-print("Agent 1")
-print("Paths:",A1Paths)
-print("Costs:",A1Costs)
-
-print("Agent 2")
-print("Paths:",A2Paths)
-print("Costs:",A2Costs)
-
 #para combinar los caminos A1
 print("Agent 1 combinados")
 new_pathsA1,new_costsA1=combinePaths(A1Paths,A1Costs)
 new_pathsA1=remove_duplicate_tuples(new_pathsA1)
-print("New Paths:",new_pathsA1)
-print("New Costs:",new_costsA1)
 
-print("Agent 2 combinados")
 #para combinar los caminos A2
 new_pathsA2,new_costsA2=combinePaths(A2Paths,A2Costs)
 new_pathsA2=remove_duplicate_tuples(new_pathsA2)
-print("New Paths:",new_pathsA2)
-print("New Costs:",new_costsA2)
-
 
 #para combinar los caminos A1 y A2
 finalcost,finalpaths,finalcosts=finalDecision(new_pathsA1,new_costsA1,new_pathsA2,new_costsA2)
-print("Final Paths:",finalpaths)
-print("Final Costs:",finalcosts)
-print("Final Cost:",finalcost)
-
+print("Agent 1")
+imprimir(A1Paths,A1Costs,new_pathsA1,new_costsA1,finalpaths[0],finalcosts[0])
+print("Agent 2")
+imprimir(A2Paths,A2Costs,new_pathsA2,new_costsA2,finalpaths[1],finalcosts[1])
 
 move_agent(map_data,finalpaths[1],2)
 move_agent(map_data,finalpaths[0],1)
