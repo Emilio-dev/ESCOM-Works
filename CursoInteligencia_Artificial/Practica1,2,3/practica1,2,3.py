@@ -407,6 +407,17 @@ def print_tree(tree):
         if not edges:
             print("└──")
 
+def print_tree(tree):
+    level=0
+    for node, edges in tree.items():
+        print(f"\t" * level + f"{node}:")
+        level += 1
+        for edge in edges:
+            print(f"\t" * (level) + f"├── {edge}")
+        if not edges:
+            print(f"\t" * (level) + "└──")
+    
+
 #para usar un mapa ya diseñado
 map_data=load_map('map.txt')
 #para crear un mapa aleatorio
@@ -424,7 +435,6 @@ while True:
         agent_type = input("Enter the agent type: ")
         graph = create_graph(agent_type,map_data)
     if choice == "1":
-
         paths,costs = bfs(graph, initial, objective)
         path,cost = decide(paths,costs)
         move_agent(map_data,path,objective,cost) 
