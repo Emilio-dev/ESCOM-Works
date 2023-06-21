@@ -132,11 +132,24 @@ def analyze_data(data):
 
 def calculate_class_means(data):
     class_means = {}
+    class_column_index = -1  # Initialize with an invalid index
+
+    # Find the index of the class column
+    for i, entry in enumerate(data):
+        for j, value in enumerate(entry):
+            if isinstance(value, str):
+                class_column_index = j
+                break
+        if class_column_index != -1:
+            break
+
+    if class_column_index == -1:
+        raise ValueError("Class column not found in the data")
 
     for entry in data:
         # Extract the numerical values and class from each entry
-        values = entry[:-1]
-        class_name = entry[-1]
+        values = entry[:class_column_index] + entry[class_column_index + 1:]
+        class_name = entry[class_column_index]
 
         # Initialize the mean list for the class if it doesn't exist
         if class_name not in class_means:
@@ -147,7 +160,7 @@ def calculate_class_means(data):
 
     # Calculate the means by dividing the sums by the count of entries in each class
     for class_name in class_means:
-        count = len([entry for entry in data if entry[-1] == class_name])
+        count = len([entry for entry in data if entry[class_column_index] == class_name])
         class_means[class_name] = [mean / count for mean in class_means[class_name]]
 
     return class_means
@@ -214,12 +227,10 @@ data,num_rows,num_columns=separate_data(file,separator)
 #present_data(data,num_rows,num_columns)
 #vector=getVector(data,1,[1,3,4])
 #print(vector)
-#aqui vamos
+
 quant_matrix,qual_matrix=analyze_data(data)
 mean_matrix=calculate_class_means(data)
-#print_qualitative_matrix(qual)
-#print_quantitative_matrix(quant)
-print(mean_matrix)
+
 classified_data=classify_data(mean_matrix,euclidean_distance,unclassified_data)
 classified_data_knn=classify_data_knn(mean_matrix,euclidean_distance,unclassified_data,1)
 
