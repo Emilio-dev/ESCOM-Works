@@ -9,6 +9,7 @@ import heapq
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
+from queue import PriorityQueue
 
 
 terrain_colors = {
@@ -277,7 +278,7 @@ def bfs(graph, start, end):
         if node == end:
             paths.append(path)
             costs.append(cost)
-
+            continue
 
         for neighbor, neighbor_cost in graph[node]:
             if neighbor not in visited and neighbor_cost > 0:
@@ -290,56 +291,53 @@ def bfs(graph, start, end):
 
     return paths, costs
 
-def dfs(graph, start, end, path=[], cost=0, paths=[], costs=[]):
-    path = path + [start]
-
-    if start == end:
-        paths.append(path)
-        costs.append(cost)
-
-    for neighbor, neighbor_cost in graph[start]:
-        if neighbor not in path and neighbor_cost > 0:
-            dfs(graph, neighbor, end, path, cost + neighbor_cost, paths, costs)
-
-    return paths, costs
-
-def astar(graph, start, end, heuristic):
-    queue = [(heuristic(start, end), 0, start, [start])]
-    visited = set()
+def dfs(graph, start, end):#aaaaaaaaaaa
     paths = []
     costs = []
 
-    # Create an empty graph
-    G = nx.Graph()
-
-    while queue:
-        _, cost, node, path = heapq.heappop(queue)
-
+    def dfs_recursive(node, path, cost,padre):
         if node == end:
             paths.append(path)
-            costs.append(cost)
-
-        visited.add(node)
-
+            costs.append(cost)            
+            return
+        
         for neighbor, neighbor_cost in graph[node]:
-            if neighbor not in visited and neighbor_cost > 0:
-                g_score = cost + neighbor_cost
-                h_score = heuristic(neighbor, end)
-                f_score = g_score + h_score
-                heapq.heappush(queue, (f_score, g_score, neighbor, path + [neighbor]))
+            if padre != neighbor and neighbor not in path and neighbor_cost > 0:
+                new_path = path + [neighbor]
+                new_cost = cost + neighbor_cost
+                dfs_recursive(neighbor, new_path, new_cost,node)
 
-                # Add an edge to the graph to represent the exploration
-                G.add_edge(node, neighbor)
 
-        # Visualize the graph
-        nx.draw(G, with_labels=True)
-        plt.pause(0.5)
-        plt.clf()
+    dfs_recursive(start, [start], 0,start)
 
     if not paths:
-        print("No path found from", start, "to", end)  # Print if no path is found
+        print("No path found from", start, "to", end)
 
-    return paths, costs
+    min_cost_index = costs.index(min(costs))
+    return paths[min_cost_index], costs[min_cost_index]
+
+def astar(graph, start, end, heuristic):
+    queue = [(0, start, [start])]  # Priority queue with tuples: (total_cost, current_node, path)
+    visited = set()
+
+    while queue:
+        total_cost, node, path = heapq.heappop(queue)
+
+        if node == end:
+            return path, total_cost  # Return the path and its total cost
+
+        if node in visited:
+            continue
+
+        visited.add(node)
+        for neighbor, neighbor_cost in graph[node]:
+            if neighbor not in visited and neighbor_cost > 0:
+                new_path = path + [neighbor]
+                priority = total_cost + neighbor_cost + heuristic(neighbor, end)
+                heapq.heappush(queue, (priority, neighbor, new_path))
+
+    print("No path found from", start, "to", end)  # Print if no path is found
+    return [], float('inf') 
 
 def manhattan_distance(current, goal):
 
@@ -399,23 +397,45 @@ def dfs_tree(graph, start):
 
     return dfs_tree
 
-def print_tree(tree):
-    for node, edges in tree.items():
-        print(f"{node}:")
-        for edge in edges:
-            print(f"├── {edge}")
-        if not edges:
-            print("└──")
+def a_star_tree(graph, start, goal, heuristic):
+    visited = set()
+    queue = PriorityQueue()
+    queue.put((0, start))
+    a_star_tree = defaultdict(list)
+
+    while not queue.empty():
+        _, node = queue.get()
+        visited.add(node)
+
+        if node == goal:
+            break
+
+        for neighbor, cost in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                priority = cost + heuristic(neighbor, goal)
+                queue.put((priority, neighbor))
+                a_star_tree[node].append((neighbor, cost))
+
+    return a_star_tree
 
 def print_tree(tree):
-    level=0
+    level = 0
     for node, edges in tree.items():
-        print(f"\t" * level + f"{node}:")
+        parent = get_parent(tree, node)  # Obtener el nodo padre
+        print(f"\t" * level + f"{node} (Padre: {parent}):")  # Imprimir nodo y su padre
         level += 1
         for edge in edges:
-            print(f"\t" * (level) + f"├── {edge}")
+            print(f"\t" * level + f"├── {edge}")
         if not edges:
-            print(f"\t" * (level) + "└──")
+            print(f"\t" * level + "└──")
+
+def get_parent(tree, node):
+    for parent, edges in tree.items():
+        for edge in edges:
+            if edge[0] == node:
+                return parent
+    return None
     
 
 #para usar un mapa ya diseñado
@@ -441,14 +461,19 @@ while True:
         tree= bfs_tree(graph, initial)
         print_tree(tree)
     elif choice == "2":
+        visited = set()
         paths,costs = dfs(graph, initial, objective)
-        path,cost = decide(paths,costs)
-        move_agent(map_data,path,objective,cost) 
-        tree= dfs_tree(graph, initial)
-        print_tree(tree)
+        print(paths,costs)
+        #path,cost = decide(paths,costs)
+        #move_agent(map_data,path,objective,cost) 
+        #tree= dfs_tree(graph, initial)
+        #print_tree(tree)
     elif choice == "3":
-        paths,costs = astar(graph, initial, objective, manhattan_distance)
-        path,cost = decide(paths,costs)
+        path,cost = astar(graph, initial, objective, manhattan_distance)
+        #move_agent(map_data,path,objective,cost)
+        tree= a_star_tree(graph, initial,objective, manhattan_distance)
+        print_tree(tree)
+        #path,cost = decide(paths,costs)
         move_agent(map_data,path,objective,cost) 
     elif choice == "4":
         agent_type,agent_movements=load_agent('agent.txt')

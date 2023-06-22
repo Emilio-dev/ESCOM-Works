@@ -5,8 +5,9 @@ from matplotlib import colors
 from matplotlib import patches
 from matplotlib import collections as coll
 from collections import defaultdict, deque
+from queue import PriorityQueue
+import math
 import heapq
-import random
 
 terrain_colors = {
     0: (0.5, 0.5, 0.5),  # Mountain - gray
@@ -42,9 +43,9 @@ agents_movement_cost = {
 
     ('monkey', 0): 0, # Monkey agent cost to traverse mountain terrain
     ('monkey', 1): 2, # Monkey agent cost to traverse land terrain
-    ('monkey', 2): 4, # Monkey agent cost to traverse water terrain
+    ('monkey', 2): 1, # Monkey agent cost to traverse water terrain
     ('monkey', 3): 3, # Monkey agent cost to traverse sand terrain
-    ('monkey', 4): 1, # Monkey agent cost to traverse forest terrain
+    ('monkey', 4): 4, # Monkey agent cost to traverse forest terrain
     ('monkey', 5): 0, # Monkey agent cost to traverse swamp terrain
     ('monkey', 6): 0, # Monkey agent cost to traverse snow terrain 
 
@@ -200,51 +201,37 @@ def create_graph(agent_type,map_data):
 
                     # calculate cost to move from cell to neighbor
                     cost = agents_movement_cost[(agent_type, terrain)]
-                    if cost == 0:
-                        continue
                     # add edge to graph
                     graph[(row, col)].append(((n_row, n_col), cost))
     return graph
 
 def astar(graph, start, end, heuristic):
-    # initialize the priority queue with the starting node
-    queue = [(heuristic(start, end), 0, start, [start])]
-    # initialize a set to keep track of visited nodes
+    queue = [(0, start, [start])]  # Priority queue with tuples: (total_cost, current_node, path)
     visited = set()
-    # initialize lists to store the paths and their respective costs
-    paths = []
-    costs = []
 
-    # continue searching while there are still nodes to explore
     while queue:
-        # get the next node with the minimum f-score to explore and its path to the current point
-        _, cost, node, path = heapq.heappop(queue)
-        # if this node is the ending node, we've found a path
+        total_cost, node, path = heapq.heappop(queue)
         if node == end:
-            # store the path and its cost
-            paths.append(path)
-            costs.append(cost)
+            return path, total_cost  # Return the path and its total cost
 
-        # mark this node as visited
+        if node in visited:
+            continue
+
         visited.add(node)
-
-        # add all unvisited neighbors with non-zero cost to the queue
         for neighbor, neighbor_cost in graph[node]:
-            if neighbor not in visited and neighbor_cost > 0:
-                # append the neighbor to the path, add to the cost and add to the queue with updated f-score
-                g_score = cost + neighbor_cost
-                h_score = heuristic(neighbor, end)
-                f_score = g_score + h_score
-                heapq.heappush(queue, (f_score, g_score, neighbor, path + [neighbor]))
+            if neighbor not in visited and neighbor_cost != 0:
+                new_path = path + [neighbor]
+                priority = total_cost + neighbor_cost + heuristic(neighbor, end)
+                heapq.heappush(queue, (priority, neighbor, new_path))
 
-    # if we reach this point, there is no path from start to end
-    return paths, costs
+    print("No path found from", start, "to", end)  # Print if no path is found
+    return [], float('inf') 
 
-def manhattan_distance(current, goal):
-
-    x1, y1 = current
-    x2, y2 = goal
-    return abs(x1 - x2) + abs(y1 - y2)
+def euclidian(node, end):
+    # Calculate Euclidean distance between 'node' and 'end'
+    x1, y1 = node
+    x2, y2 = end
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
 def decide(paths,costs):
     return paths[costs.index(min(costs))],min(costs)
@@ -339,25 +326,26 @@ def finalDecision(pathsA1,costsA1,pathsA2,costsA2):
         # I-K-P I-D-P
         paths = pathsA1[1] , pathsA2[2] 
         costs = costsA1[1] , costsA2[2]
+
     return min(finalcosts),paths,costs
 
 def find_paths(graph, initial,key, Dtemple, portal,heuristic):
     paths = [None] * 7
     costs = [None] * 7
-    x, y = astar(graph, initial, portal, heuristic)
-    paths[0], costs[0] = decide(x,y)
-    x, y = astar(graph, initial, key, heuristic)
-    paths[1], costs[1] = decide(x,y)
-    x, y = astar(graph, initial, Dtemple, heuristic)
-    paths[2], costs[2] = decide(x,y)
-    x, y = astar(graph, key, Dtemple, heuristic)
-    paths[3], costs[3] = decide(x,y)
-    x, y = astar(graph, Dtemple, key, heuristic)
-    paths[4], costs[4] = decide(x,y)
-    x, y = astar(graph, key, portal, heuristic)
-    paths[5], costs[5] = decide(x,y)
-    x, y = astar(graph, Dtemple, portal, heuristic)
-    paths[6], costs[6] = decide(x,y)
+    #I-P
+    paths[0], costs[0] = astar(graph, initial, portal,heuristic)
+    #I-K
+    paths[1], costs[1] = astar(graph, initial, key,heuristic)
+    #I-D
+    paths[2], costs[2] = astar(graph, initial, Dtemple,heuristic)
+    #K-D
+    paths[3], costs[3] = astar(graph, key, Dtemple,heuristic)
+    #D-K
+    paths[4], costs[4] = astar(graph, Dtemple, key,heuristic)
+    #K-P
+    paths[5], costs[5] = astar(graph, key, portal,heuristic)
+    #D-P
+    paths[6], costs[6] = astar(graph, Dtemple, portal,heuristic)
     return paths, costs
 
 def remove_duplicate_tuples(paths_list):
@@ -373,14 +361,15 @@ def remove_duplicate_tuples(paths_list):
     return result_list
 
 def imprimir(paths,costs,pathsU,costsU,pathFinal,costFinal):
+
     print("Individual")
     print("i-p",costs[0],paths[0])
     print("i-k",costs[1],paths[1])
-    print("i-d",costs[2],paths[2])
-    print("k-d",costs[3],paths[3])
-    print("d-k",costs[4],paths[4])
+    print("i-t",costs[2],paths[2])
+    print("k-t",costs[3],paths[3])
+    print("t-k",costs[4],paths[4])
     print("k-p",costs[5],paths[5])
-    print("d-p",costs[6],paths[6])
+    print("t-p",costs[6],paths[6])
 
     print("Combinados")
     print("I-P")
@@ -389,18 +378,19 @@ def imprimir(paths,costs,pathsU,costsU,pathFinal,costFinal):
     print("I-K-P")
     print("path: ",pathsU[1])
     print("cost: ",costsU[1])
-    print("I-D-P")
+    print("I-T-P")
     print("path: ",pathsU[2])
     print("cost: ",costsU[2])
-    print("I-K-D-P")
+    print("I-K-T-P")
     print("path: ",pathsU[3])
     print("cost: ",costsU[3])
-    print("I-D-K-P")
+    print("I-T-K-P")
     print("path: ",pathsU[4])
     print("cost: ",costsU[4])
     print("Path Final")
     print("path: ",pathFinal)
     print("cost: ",costFinal)
+
 #para usar un mapa ya diseñado
 map_data=load_map('map.txt')
 #para crear un mapa aleatorio
@@ -409,13 +399,13 @@ display_map(map_data)
 map_data,initialA1,initialA2,portal,key,Dtemple=scan_map(map_data)
 #display_map(map_data)
 graphA1 = create_graph('human',map_data)
-graphA2 = create_graph('monkey',map_data)
+graphA2 = create_graph('sasquatch',map_data)
 
 # for agent 1
-A1Paths, A1Costs = find_paths(graphA1, initialA1,key, Dtemple, portal,manhattan_distance)
+A1Paths, A1Costs = find_paths(graphA1, initialA1,key, Dtemple, portal,euclidian)
 
 # for agent 2
-A2Paths, A2Costs = find_paths(graphA1, initialA2,key, Dtemple, portal,manhattan_distance)
+A2Paths, A2Costs = find_paths(graphA1, initialA2,key, Dtemple, portal,euclidian)
 
 #para combinar los caminos A1
 print("Agent 1 combinados")
@@ -433,6 +423,6 @@ imprimir(A1Paths,A1Costs,new_pathsA1,new_costsA1,finalpaths[0],finalcosts[0])
 print("Agent 2")
 imprimir(A2Paths,A2Costs,new_pathsA2,new_costsA2,finalpaths[1],finalcosts[1])
 
-move_agent(map_data,finalpaths[1],2)
+#move_agent(map_data,finalpaths[1],2)
 move_agent(map_data,finalpaths[0],1)
 display_map(map_data)
