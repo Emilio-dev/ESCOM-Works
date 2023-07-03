@@ -273,7 +273,6 @@ def get_children_values(node):
 
     return values
 
-
 def determine_operation_type(arr):
     first_element = arr[0]
 
@@ -317,7 +316,7 @@ def formatear_operacion(operacion):
 def formatear_operacion_str(lista):
     resultado = []
     for cadena in lista:
-        cadena_sin_token = cadena.replace("masToken", "")
+        cadena_sin_token = cadena.replace("+", "")
         resultado.append(cadena_sin_token)
     return resultado
 
@@ -338,6 +337,7 @@ def realizar_operaciones(operacion):
     if validez== False:
         print("Error de tipos")
         return resultado  
+    
     if tipoOperacion=="arithmetic_strings":
         operacion_str = formatear_operacion_str(aux)
         resultado = ''.join(operacion_str)
@@ -352,7 +352,7 @@ def traverse_ast(root):
     queue = deque(root.children)
     while queue:
         node = queue.popleft()
-        print(node.value)
+        
         if node is not None:
             
             if node.token_type == 'varToken':
@@ -408,7 +408,8 @@ def traverse_ast(root):
 
             elif node.token_type == 'paraToken':
                 lparen = node.children[0]
-                queue.extend(node.children[1].children)
+                #queue.extend(node.children[1].children)
+                print("no terminado")
                 
 def print_tree(node, level=0):
     if node is not None:
@@ -428,7 +429,7 @@ def PROGRAM(tokens):
                 idx = DECLARATION(tokens, idx,tree_root)
             else:
                 return -1    
-        print_tree(tree_root)  
+        #print_tree(tree_root)  
         traverse_ast(tree_root)  
 
 def DECLARATION(tokens, idx,parent_node):#no se como poner expr_stmt ,le movi y le agrege desde verdadero
